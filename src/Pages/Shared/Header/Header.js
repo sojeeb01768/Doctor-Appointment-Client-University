@@ -7,7 +7,7 @@ import logo from "../../../assets/logo.png"
 const Nav = () => {
     let Links = [
         { name: "HOME", link: "/" },
-        { name: "SERVICE", link: "/" },
+        { name: "CONSULTATION", link: "/consultation" },
         { name: "ABOUT", link: "/" },
         { name: "BLOG'S", link: "/" },
         { name: "CONTACT", link: "/" },
