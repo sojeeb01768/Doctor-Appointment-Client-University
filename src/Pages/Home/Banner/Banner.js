@@ -4,6 +4,8 @@ import doctor from '../../../assets/doctor.json'
 import Lottie from 'lottie-react'
 
 const Banner = () => {
+
+    
     return (
         <div className='bg-img'>
             <div className="hero min-h-screen my-10">
