@@ -1,69 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Consultation = () => {
 
-    const specialities = [
-        {
-            id: 1,
-            treatment: "General Physician",
-            desc: "Cold, flu, fever, vomiting, infections, headaches or any other general health issues.",
-            icon: "https://i.ibb.co/cckKZfm/medicine.png"
+    const [specialities, setSpecialities] = useState([])
+    // console.log(specialities);
 
-        },
-        {
-            id: 2,
-            treatment: "Gynecology",
-            desc: "Any women's health related issues including pregnancy, menstruation, fertility issues, hormone disorders etc.",
-            icon: "https://i.ibb.co/2dcd0h8/gynecology.png"
-
-        },
-        {
-            id: 3,
-            treatment: "Child Care / Pediatrics",
-            desc: "Any children's health related issues including physical, behavior and mental health.",
-            icon: "https://i.ibb.co/bd8bw1S/childcare.png"
-
-        },
-        {
-            id: 4,
-            treatment: "Skin / Dermatology",
-            desc: "Treatment of diseases related to skin, hair and nails and some cosmetic problems.",
-            icon: "https://i.ibb.co/0hpsQfb/skin.png"
-
-        },
-        {
-            id: 5,
-            treatment: "Psychiatry",
-            desc: "Diagnosis, prevention, and treatment of mental disorders related to mood, behaviour, cognition, and perceptions.",
-            icon: "https://i.ibb.co/Z6KZPhd/psychistry.png"
-
-        },
-        {
-            id: 6,
-            treatment: "Brain / Neurology",
-            desc: "Diagnosis, treatment for disease involving the central and peripheral nervous systems.",
-            icon: "https://i.ibb.co/1m7DrFL/brain.png"
-
-        },
-    ]
+    useEffect(() => {
+        fetch('http://localhost:5000/consultation')
+            .then(response => response.json())
+            .then(data => setSpecialities(data));
+    }, []);
 
     return (
 
-        <div className='mt-32 mx-20 lg:mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+        <div className='mt-32 mx-20 lg:mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {
                 specialities?.map(speciality =>
                     <Link to={'/specialist'} key={speciality?.id}>
-                        <div className="card w-full bg-base-100 shadow-md ">
+                        <div className="card w-full bg-base-100 shadow-md border">
 
-                            <div className="card-body">
-                                <div className='flex gap-4'>
-                                    <div>
+                            <div className="card-body ">
+                                <div className=' lg:flex md:justify-center md:items-center lg:justify-center lg:items-center gap-4'>
+                                    <div className='mx-auto w-28 lg:w-44'>
                                         <img src={speciality?.icon} alt="" />
                                     </div>
-                                    <div>
-                                        <h2 className="card-title font-bold text-2xl mb-3">{speciality?.treatment}</h2>
-                                        <p>{speciality?.desc}</p>
+                                    <div className='p-2'>
+                                        <h2 className=" lg:text-left sm:text-center font-bold text-2xl mb-3">{speciality?.treatment}</h2>
+                                        <p className=' lg:text-left sm:text-center lg:pr-7'>{speciality?.desc}</p>
                                     </div>
                                 </div>
                             </div>
