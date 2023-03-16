@@ -1,0 +1,5 @@
+.login-bg-img{
+    background-image: url("../../assets/Login-BG.jpg") ;
+    background-size: cover;
+    opacity: 1;
+}
