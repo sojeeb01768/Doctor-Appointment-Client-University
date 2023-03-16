@@ -11,6 +11,7 @@ const Nav = () => {
         { name: "ABOUT", link: "/" },
         { name: "BLOG'S", link: "/" },
         { name: "CONTACT", link: "/" },
+        { name: "LOGIN", link: "/login" },
     ];
     let [open, setOpen] = useState(false);
     return (
@@ -28,7 +29,7 @@ const Nav = () => {
                     {
                         Links.map((link) => (
                             <li key={link.name} className='md:ml-8 text-sm md:my-0 my-7'>
-                                <a href={link.link} className='text-gray-800 hover:text-gray-400 duration-500'>{link.name}</a>
+                                <Link to={link.link} className='text-gray-800 hover:text-gray-400 duration-500'>{link.name}</Link>
                             </li>
                         ))
                     }
