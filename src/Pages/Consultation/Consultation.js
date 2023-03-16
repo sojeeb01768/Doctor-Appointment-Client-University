@@ -5,45 +5,39 @@ const Consultation = () => {
 
     const specialities = [
         {
-            id: 1,
-            treatment: "General Physician",
-            desc: "Cold, flu, fever, vomiting, infections, headaches or any other general health issues.",
-            icon: "https://i.ibb.co/cckKZfm/medicine.png"
+            "treatment": "General Physician",
+            "desc": "Cold, flu, fever, vomiting, infections, headaches or any other general health issues.",
+            "icon": "https://i.ibb.co/cckKZfm/medicine.png"
 
         },
         {
-            id: 2,
-            treatment: "Gynecology",
-            desc: "Any women's health related issues including pregnancy, menstruation, fertility issues, hormone disorders etc.",
-            icon: "https://i.ibb.co/2dcd0h8/gynecology.png"
+            "treatment": "Gynecology",
+            "desc": "Any women's health related issues including pregnancy, menstruation, fertility issues, hormone disorders etc.",
+            "icon": "https://i.ibb.co/2dcd0h8/gynecology.png"
 
         },
         {
-            id: 3,
-            treatment: "Child Care / Pediatrics",
-            desc: "Any children's health related issues including physical, behavior and mental health.",
-            icon: "https://i.ibb.co/bd8bw1S/childcare.png"
+            "treatment": "Child Care / Pediatrics",
+            "desc": "Any children's health related issues including physical, behavior and mental health.",
+            "icon": "https://i.ibb.co/bd8bw1S/childcare.png"
 
         },
         {
-            id: 4,
-            treatment: "Skin / Dermatology",
-            desc: "Treatment of diseases related to skin, hair and nails and some cosmetic problems.",
-            icon: "https://i.ibb.co/0hpsQfb/skin.png"
+            "treatment": "Skin / Dermatology",
+            "desc": "Treatment of diseases related to skin, hair and nails and some cosmetic problems.",
+            "icon": "https://i.ibb.co/0hpsQfb/skin.png"
 
         },
         {
-            id: 5,
-            treatment: "Psychiatry",
-            desc: "Diagnosis, prevention, and treatment of mental disorders related to mood, behaviour, cognition, and perceptions.",
-            icon: "https://i.ibb.co/Z6KZPhd/psychistry.png"
+            "treatment": "Psychiatry",
+            "desc": "Diagnosis, prevention, and treatment of mental disorders related to mood, behaviour, cognition, and perceptions.",
+            "icon": "https://i.ibb.co/Z6KZPhd/psychistry.png"
 
         },
         {
-            id: 6,
-            treatment: "Brain / Neurology",
-            desc: "Diagnosis, treatment for disease involving the central and peripheral nervous systems.",
-            icon: "https://i.ibb.co/1m7DrFL/brain.png"
+            "treatment": "Brain / Neurology",
+            "desc": "Diagnosis, treatment for disease involving the central and peripheral nervous systems.",
+            "icon": "https://i.ibb.co/1m7DrFL/brain.png"
 
         },
     ]
