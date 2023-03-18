@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import footer from '../../../assets/images/footer.png'
+import './Footer.css';
 
 const Footer = () => {
     return (
@@ -9,11 +10,11 @@ const Footer = () => {
             //     background: `url(${footer})`,
             //     backgroundSize: 'cover'
             // }}
-            className="p-10"
+            className="bg-footer p-10"
         >
 
 
-            <div className="footer">
+            <div className="footer ">
                 <div className='mx-auto'>
                     <span className="footer-title">Services</span>
                     <Link to='/' className="link link-hover">Branding</Link>
