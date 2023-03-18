@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import { Link } from 'react-router-dom';
-import Specialist from '../Specialist/Specialist';
+// import Specialist from '../Specialist/Specialist';
+import Specialities from '../Specialities/Specialities';
 
 const Consultation = () => {
 
@@ -16,13 +17,13 @@ const Consultation = () => {
 
     return (
 
-        <div className='mt-32 mx-20 lg:mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+        <div className='mt-10 mx-10 lg:mx-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {
                 specialities?.map(speciality =>
 
-                    <Specialist key={speciality?._id}
+                    <Specialities key={speciality?._id}
                         speciality={speciality}
-                    ></Specialist>
+                    ></Specialities>
 
 
                 )
