@@ -7,7 +7,6 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 //Footer section
 const Footer = () => {
@@ -21,20 +20,20 @@ const Footer = () => {
 
               <div className="flex items-center contact mt-10">
                 <FaWarehouse className="mr-6"></FaWarehouse>
-                <span>contact@erminautomotive.com</span>
+                <span>sojeebahmed.sa@gmail.com</span>
               </div>
 
               <div className="flex items-center mt-5 contact">
                 <FaMapMarkerAlt className="mr-6"></FaMapMarkerAlt>
                 <span>
-                  Plot no: 68 TNGOs Gachibowli, <br />
-                  Hyderabad, Telangana 500032
+
+                  Dhaka, Bangladesh
                 </span>
               </div>
 
               <div className="flex items-center contact mt-5">
                 <FaPhoneAlt className="mr-6"></FaPhoneAlt>
-                <span>040-46028449</span>
+                <span>+880 1768670013</span>
               </div>
 
               <div>
@@ -76,7 +75,7 @@ const Footer = () => {
           <div>
             <h1 className="mt-12 title-contact mb-10">QUICK CONTACT</h1>
             <form>
-              <div className="flex justify-between">
+              <div className="flex justify-between ">
                 <input
                   type="text"
                   className="input-bg w-5/12"
@@ -117,7 +116,7 @@ const Footer = () => {
                   required
                 />
               </div>
-              <div className="mt-8 text-gray-400">
+              <div className="mt-8 text-gray-600">
                 <small className="text-inherit">
                   @ Copyright © 2021 Ermin Automotive. All rights reserved
                 </small>

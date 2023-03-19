@@ -6,7 +6,7 @@ import Intro from "./Intro";
 const StickyCards = () => {
   return (
     <div>
-      <div className="mx-auto max-w-4xl px-5">
+      <div className="mx-auto max-w-4xl mb-10 px-5">
         <Intro />
         <Cards />
         {/* <Content /> */}
