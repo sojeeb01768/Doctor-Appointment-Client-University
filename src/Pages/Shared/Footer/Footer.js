@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+import "./Footes.css";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaWarehouse } from "react-icons/fa";
