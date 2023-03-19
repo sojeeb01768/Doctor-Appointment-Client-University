@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from '../Shared/Header/Button';
 import './Login.css';
 import bg from '../../assets/BG-8.jpg';
@@ -8,16 +8,37 @@ import GoogleLogin from '../../assets/1534129544.svg';
 import FacebookLogin from '../../assets/facebook-logo-2019.svg';
 import { useForm } from 'react-hook-form';
 import animation from '../../assets/loginAnimation-3.json';
+import { AuthContext } from '../../contexts/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 
 
 const Login = () => {
 
+    const { signIn } = useContext(AuthContext)
+
     const { register, formState: { errors }, handleSubmit } = useForm();
-    // const [data, setData] = useState("");
+    const [loginError, setLoginError] = useState("");
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = data => {
         console.log(data);
+        setLoginError("");
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                toast.success("Login Successful")
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.error(error.message);
+                setLoginError(error.message);
+            })
     }
 
     return (
@@ -65,7 +86,11 @@ const Login = () => {
                                 {/* Email input */}
                                 <div className="relative mt-6 border-b">
                                     <input
-                                        {...register("email", { required: 'Email Is Required' })}
+                                        {...register("email",
+                                            {
+                                                required: 'Email Is Required'
+                                            }
+                                        )}
                                         type='email'
                                         className="peer placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
                                         placeholder="Email address"
@@ -81,7 +106,11 @@ const Login = () => {
                                 <div className="relative mt-6 border-b">
                                     <input
                                         {...register("password",
-                                            { required: 'Password Is Required' }
+                                            {
+                                                required: 'Password Is Required',
+                                                minLength: { value: 6, message: "Password must be atleast 6 characters" }
+                                            }
+
                                         )}
                                         type="password"
                                         className="peer placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
@@ -95,7 +124,10 @@ const Login = () => {
                                 </div>
                                 {errors.password && <p role="alert" className='text-red-600 text-sm'>{errors.password?.message}</p>}
                                 <div className="text-center mt-5 lg:text-left">
-                                    {/* <p>{data}</p> */}
+                                    <div className='mb-3'>
+                                        {loginError && <p className='text-red-600 text-sm'>{loginError}</p>}
+                                    </div>
+
                                     <Button type="submit">LOGIN</Button>
                                     <p className="text-base-300 mt-2 mb-0 pt-1 text-sm font-semibold">
                                         Don't have any account?
