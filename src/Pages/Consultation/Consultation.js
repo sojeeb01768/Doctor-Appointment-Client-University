@@ -30,6 +30,10 @@ const Consultation = () => {
                         speciality={speciality}
                     ></Specialities>
                 )
+
+
+
+                
             }
         </div>
     );
