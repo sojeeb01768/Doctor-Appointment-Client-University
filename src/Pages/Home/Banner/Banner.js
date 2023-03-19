@@ -5,13 +5,13 @@ import Lottie from 'lottie-react'
 
 const Banner = () => {
 
-    
+
     return (
         <div className='bg-img'>
             <div className="hero min-h-screen my-10">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className='container'>
-                    <Lottie animationData={doctor} ></Lottie>
+                        <Lottie animationData={doctor} ></Lottie>
                     </div>
                     <div className='ml-5'>
                         <h1 className="text-6xl font-bold">Complete Health Solution</h1>
