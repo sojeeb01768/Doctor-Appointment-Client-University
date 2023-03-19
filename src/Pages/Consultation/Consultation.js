@@ -4,9 +4,14 @@ import React, { useEffect, useState } from 'react';
 import Specialities from '../Specialities/Specialities';
 
 const Consultation = () => {
+  const [specialities, setSpecialities] = useState([]);
+  // console.log(specialities);
 
-    const [specialities, setSpecialities] = useState([])
-    // console.log(specialities);
+  useEffect(() => {
+    fetch("http://localhost:5000/consultation")
+      .then((response) => response.json())
+      .then((data) => setSpecialities(data));
+  }, []);
 
 
     useEffect(() => {
