@@ -29,8 +29,6 @@ const Consultation = () => {
                     <Specialities key={speciality?._id}
                         speciality={speciality}
                     ></Specialities>
-
-
                 )
             }
         </div>
