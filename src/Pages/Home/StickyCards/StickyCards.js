@@ -1,6 +1,6 @@
 import React from "react";
 import Cards from "./Cards/Cards";
-import Content from "./Content";
+// import Content from "./Content";
 import Intro from "./Intro";
 
 const StickyCards = () => {
