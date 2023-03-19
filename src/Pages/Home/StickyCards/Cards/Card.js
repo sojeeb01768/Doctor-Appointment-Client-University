@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = ({ data, stickyTopSpace }) => {
 	const { title, body, img } = data;
@@ -12,9 +13,9 @@ const Card = ({ data, stickyTopSpace }) => {
 				<div className="space-y-4 pt-16 pb-10">
 					<h2 className="font-serif text-5xl -mb-2">{title}</h2>
 					<p className="lg:w-3/4 text-lg">{body}</p>
-					<a href="" className="inline-flex rounded-lg hover:bg-emerald-700 transition bg-emerald-600 px-4 py-2 font-medium text-white">
+					<Link to='/' className="inline-flex rounded-lg hover:bg-emerald-700 transition bg-emerald-600 px-4 py-2 font-medium text-white">
 						Read more
-					</a>
+					</Link>
 				</div>
 			</div>
 			<div className="relative min-h-[200px] md:min-h-[450px]">

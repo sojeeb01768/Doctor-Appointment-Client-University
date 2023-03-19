@@ -1,19 +1,41 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import bg from '../../assets/BG-8.jpg';
 import Button from '../Shared/Header/Button';
 import { useForm } from "react-hook-form";
 import Lottie from 'lottie-react';
 import loginAnimation from '../../assets/login-page-animation.json';
+import { AuthContext } from '../../contexts/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 
 const Signup = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+
+    const { register, formState: { errors }, handleSubmit } = useForm();
     // const [data, setData] = useState("");
+    const [signUpError, setSignUpError] = useState("");
 
     const handleSignUp = data => {
         console.log(data);
+        setSignUpError("");
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success("User Created Successfully")
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUserProfile(userInfo)
+                    .then(() => { })
+                    .catch(error => console.log(error))
+            })
+            .catch(error => {
+                console.error(error);
+                setSignUpError(error.message);
+            })
     }
 
     return (
@@ -45,25 +67,33 @@ const Signup = () => {
 
                                 {/* <!-- Name input --> */}
 
-                                <div className="relative mb-5 border-b" data-te-input-wrapper-init>
+                                <div className="relative border-b" data-te-input-wrapper-init>
 
                                     <input
-                                        {...register("Name")}
+                                        {...register("name",
+                                            {
+                                                required: 'Name Is Required'
+                                            }
+                                        )}
                                         // autocomplete="off"
                                         type="text"
-                                        className="peer placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
+                                        className="peer  placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
                                         placeholder="Your Name" />
                                     <label
-                                        // for="email"
                                         className="absolute left-0 -top-3.5 text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">
                                         Your Full Name
                                     </label>
                                 </div>
+                                {errors.name && <p role="alert" className='text-red-600 text-sm'>{errors.name?.message}</p>}
 
                                 {/* Email input */}
-                                <div className="relative mb-6 border-b" data-te-input-wrapper-init>
+                                <div className="relative mt-6 border-b" data-te-input-wrapper-init>
                                     <input
-                                        {...register("Email")}
+                                        {...register("email",
+                                            {
+                                                required: 'Email Is Required'
+                                            }
+                                        )}
                                         type='email'
                                         className="peer placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
                                         placeholder="Email address" />
@@ -73,26 +103,47 @@ const Signup = () => {
                                         Email address
                                     </label>
                                 </div>
-                                {/* Select */}
-                                <div className="relative mb-6 " data-te-input-wrapper-init>
-                                    <select className='w-full bg-transparent p-1   border-b' {...register("category", { required: true })}>
-                                        <option value="">Select One</option>
+                                {errors.email && <p role="alert" className='text-red-600 text-sm'>{errors.email?.message}</p>}
+
+                                {/* Select category*/}
+                                <div className="relative mt-6 " data-te-input-wrapper-init>
+                                    <select className='w-full bg-transparent p-1   border-b'
+                                        {...register("category",
+                                            {
+                                                required: 'Category Is Required'
+                                            }
+                                        )}>
+                                        <option value="">Category</option>
                                         <option value="Patient">Patient</option>
                                         <option value="Doctor">Doctor</option>
                                     </select>
                                 </div>
+                                {errors.category && <p role="alert" className='text-red-600 text-sm'>{errors.category?.message}</p>}
 
-                                <div className="relative mb-6 border-b bg-transparent" data-te-input-wrapper-init>
+
+                                {/* Image upload
+                                <div className="relative mt-6 border-b bg-transparent" data-te-input-wrapper-init>
                                     <input
-                                        {...register("image")}
+                                        {...register("image",
+                                            {
+                                                required: 'Image Is Required'
+                                            }
+                                        )}
                                         className='bg-transparent'
                                         type="file" />
                                 </div>
+                                {errors.image && <p role="alert" className='text-red-600 text-sm'>{errors.image?.message}</p>} */}
+
 
                                 {/* <!-- Password input --> */}
-                                <div className="relative mb-6 border-b" data-te-input-wrapper-init>
+                                <div className="relative mt-6 border-b" data-te-input-wrapper-init>
                                     <input
-                                        {...register("password")}
+                                        {...register("password",
+                                            {
+                                                required: 'Password Is Required',
+                                                minLength: { value: 6, message: "Password must be atleast 6 characters" }
+                                            }
+                                        )}
                                         type="password"
                                         className="peer placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
                                         placeholder="Password" />
@@ -102,11 +153,14 @@ const Signup = () => {
                                         Password
                                     </label>
                                 </div>
-                                <div className="text-center lg:text-left">
-                                    {/* <p>{data}</p> */}
+                                {errors.password && <p role="alert" className='text-red-600 text-sm'>{errors.password?.message}</p>}
+                                <div className="text-center lg:text-left mt-6">
+                                <div className='mb-3'>
+                                        {signUpError && <p className='text-red-600 text-sm'>{signUpError}</p>}
+                                    </div>
                                     <Button type="submit">SIGN UP</Button>
 
-                                    <p className="text-base-300 mt-2 mb-0 pt-1 text-sm font-semibold">
+                                    <p className="text-base-300  mb-0 pt-1 text-sm font-semibold">
                                         Already have an account? <Link className='text-blue-600 font-bold' to='/login'>LOGIN</Link>
 
                                     </p>
