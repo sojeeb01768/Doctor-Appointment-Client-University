@@ -1,8 +1,8 @@
-// import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Specialities = ({ speciality }) => {
-    const {_id } = speciality
+    const { _id } = speciality
     // useEffect(() => {
     //     fetch('http://localhost:5000/consultation')
     //         .then(response => response.json())
@@ -11,7 +11,7 @@ const Specialities = ({ speciality }) => {
 
     return (
         <div className='mt-20'>
-             <Link to={`/specialities/${_id}`}>
+            <Link to={`/specialist/${_id}`}>
                 <div className="card w-full bg-base-100 shadow-md border">
 
                     <div className="card-body ">

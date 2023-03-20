@@ -23,11 +23,11 @@ const router = createBrowserRouter([
                 element: <Consultation></Consultation>
             },
             {
-                path: '/specialist',
+                path: '/specialist/:id',
                 element: <Specialist></Specialist>
             },
             {
-                path: '/specialities/:id',
+                path: '/specialities',
                 element: <Specialities></Specialities>
             },
             {
