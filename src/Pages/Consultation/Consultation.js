@@ -7,13 +7,6 @@ const Consultation = () => {
   const [specialities, setSpecialities] = useState([]);
   // console.log(specialities);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/consultation")
-      .then((response) => response.json())
-      .then((data) => setSpecialities(data));
-  }, []);
-
-
     useEffect(() => {
         fetch('http://localhost:5000/consultation')
             .then(response => response.json())

@@ -24,7 +24,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/specialist/:id',
-                element: <Specialist></Specialist>
+                element: <Specialist></Specialist>,
+                loader: ({ params }) => fetch(`http://localhost:5000/consult/${params.id}`)
+                
             },
             {
                 path: '/specialities',

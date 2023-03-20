@@ -1,0 +1,74 @@
+[
+    {
+        "id": "01",
+        "name": "Abdul Alim",
+        "designation": "MBBS, Mphil",
+        "specialities": "General Physician"
+    },
+    {
+        "id": "01",
+        "name": "Abdullah Halim",
+        "designation": "MBBS, Mophil",
+        "specialities": "General Physician"
+    },
+    {
+        "id": "02",
+        "name": "Afsara Korim",
+        "designation": "MBBS",
+        "specialities": "Gynecology"
+    },
+    {
+        "id": "02",
+        "name": "Mim kafee",
+        "designation": "MBBS",
+        "specialities": "Gynecology"
+    },
+    {
+        "id": "03",
+        "name": "Sultana Begum",
+        "designation": "MBBS",
+        "specialities": "Pediatric"
+    },
+    {
+        "id": "03",
+        "name": "Anima Talukder",
+        "designation": "MBBS",
+        "specialities": "Pediatric"
+    },
+    {
+        "id": "04",
+        "name": "Hafeez Rahman",
+        "designation": "MBBS",
+        "specialities": "Dermatology"
+    },
+    {
+        "id": "04",
+        "name": "Tonni Khan",
+        "designation": "MBBS",
+        "specialities": "Dermatology"
+    },
+    {
+        "id": "05",
+        "name": "Hafeeza Khatun",
+        "designation": "MBBS, MD(Psychiatry)",
+        "specialities": "Psychiatry"
+    },
+    {
+        "id": "05",
+        "name": "Tanvir Khan",
+        "designation": "MBBS, MCPS(Psychiatry)",
+        "specialities": "Psychiatry"
+    },
+    {
+        "id": "06",
+        "name": "Bilkis Khan",
+        "designation": "MBBS, MD,FCPS",
+        "specialities": "Neuorology"
+    },
+    {
+        "id": "06",
+        "name": "Habiba Rahman",
+        "designation": "MBBS, MD,FRCS ",
+        "specialities": "Neuorology"
+    }
+]

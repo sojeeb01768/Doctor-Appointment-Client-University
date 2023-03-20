@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Specialities = ({ speciality }) => {
-    const { _id } = speciality
+    const { id } = speciality
+
+    // const [specialist, setSpecialist] = useState([]);
+    // console.log(specialist);
+
     // useEffect(() => {
-    //     fetch('http://localhost:5000/consultation')
+    //     fetch(`http://localhost:5000/consult/${id}`)
     //         .then(response => response.json())
-    //         .then(data => setSpecialities(data));
-    // }, []);
+    //         .then(data => setSpecialist(data));
+    // }, [id]);
+   
 
     return (
         <div className='mt-20'>
-            <Link to={`/specialist/${_id}`}>
+            <Link to={`/specialist/${id}`}>
                 <div className="card w-full bg-base-100 shadow-md border">
 
                     <div className="card-body ">
