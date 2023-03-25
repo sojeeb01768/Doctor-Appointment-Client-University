@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ data, stickyTopSpace }) => {
 	const { title, body, img } = data;
-	console.log(stickyTopSpace);
+	// console.log(stickyTopSpace);
 
 	return (
 		<div
