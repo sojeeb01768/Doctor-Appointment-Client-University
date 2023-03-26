@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import HomeCarousel from "../Carousel/HomeCarousel";
 import StickyCards from "../StickyCards/StickyCards";
 
+
 // import Cards from "../Cards/Cards";
 
 const Home = () => {
