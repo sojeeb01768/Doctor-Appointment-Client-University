@@ -79,7 +79,7 @@ const Login = () => {
                                 <div
                                     className="mb-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-white after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
                                     <p
-                                        className="mx-4 mb-4 md:text-3xl lg:text-5xl  text-center font-semibold dark:text-white">
+                                        className="mx-4 mb-4 md:text-3xl lg:text-5xl  text-center font-semibold text-white">
                                         Login Your Account
                                     </p>
                                 </div>

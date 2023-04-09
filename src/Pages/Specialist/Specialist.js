@@ -1,19 +1,19 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-
+import './Specialist.css'
 const Specialist = () => {
   const doctors = useLoaderData();
   console.log(doctors);
 
   return (
-    <div className="mt-24 mb-4">
+    <div className="pt-24 pb-4 specialist-bg">
       {doctors.map((doctor) => (
         <div
           key={doctor._id}
           className="py-5 mx-4 lg:mx-auto md:mx-auto sm:max-w-xl md:max-w-full lg:w-9/12 md:px-24 lg:px-8 lg:py-5"
         >
           <Link to={`/doctorsDetails/${doctor?._id}`}>
-            <div className="p-5 rounded shadow-lg border w-full hover:shadow-xl">
+            <div className="p-5 rounded shadow-lg border w-full hover:shadow-xl bg-white">
               <div className="lg:flex md:flex justify-between  lg:flex-row md:flex-row">
                 <div className="flex gap-3">
                   <img className="w-28 rounded" src={doctor?.image} alt="" />

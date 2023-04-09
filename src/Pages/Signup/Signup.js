@@ -62,7 +62,7 @@ const Signup = () => {
                                 <div
                                     className="mb-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-white after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
                                     <p
-                                        className="mx-4 mb-5 md:text-4xl lg:text-5xl text-center font-semibold dark:text-white ">
+                                        className="mx-4 mb-5 md:text-4xl lg:text-5xl text-center font-semibold text-white ">
                                         Create An Account
                                     </p>
                                 </div>
