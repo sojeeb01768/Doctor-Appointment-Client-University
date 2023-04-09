@@ -10,6 +10,7 @@ import { FaFacebookF } from "react-icons/fa";
 
 //Footer section
 const Footer = () => {
+  
   return (
     <div className="bg-footer pb-14 text-white">
       <div className="hero ">

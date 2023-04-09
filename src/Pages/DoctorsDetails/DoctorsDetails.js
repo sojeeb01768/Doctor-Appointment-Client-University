@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import DoctorInfo from "./DoctorInfo";
+import AppointmentBanner from "./AppointmentBanner";
+import AvailableAppointment from "./AvailableAppointment";
+import BookingModal from "./BookingModal/BookingModal";
 
 const DoctorsDetails = () => {
   const doctor = useLoaderData();
   console.log(doctor);
 
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   return (
     <div className="lg:mt-20 lg:mb-0 mt-28 mb-8 px-4 mx-auto md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        
       <div className="rounded-xl p-5 border">
-        
         <div className="lg:flex md:flex md:justify-between  md:items-center lg:justify-between lg:items-center lg:flex-row ">
-        
           <div className="flex flex-col lg:flex-row">
             <div className="mb-6 lg:mb-0 lg:pr-5">
               <img src={doctor.image} alt="" className="w-40 rounded-xl" />
@@ -37,30 +39,39 @@ const DoctorsDetails = () => {
             </div>
           </div>
 
-          
-
           <div className="mt-10 lg:mt-0 md:mt-0">
-                <button className="btn btn-primary">Book Doctor</button>
+            <button className="btn btn-primary">Book Doctor</button>
           </div>
-
-          
-
-
         </div>
 
         <div className="divider mt-8"></div>
 
         <div className="">
-            <p className="text-gray-500 text-lg">Total Experience</p>
-            <p className="font-bold">{doctor?.TotalExperience} Years+</p>
+          <p className="text-gray-500 text-lg">Total Experience</p>
+          <p className="font-bold">{doctor?.TotalExperience} Years+</p>
         </div>
 
         <div className="divider"></div>
 
-        {/* <DoctorInfo doctor = {doctor}>
+        <DoctorInfo doctor={doctor}></DoctorInfo>
 
-        </DoctorInfo> */}
+        <AvailableAppointment
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          doctor={doctor}
+        ></AvailableAppointment>
+        <AppointmentBanner
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          doctor={doctor}
+        ></AppointmentBanner>
       </div>
+
+      <BookingModal
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+        doctor={doctor}
+      ></BookingModal>
     </div>
   );
 };

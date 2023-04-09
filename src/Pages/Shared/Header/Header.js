@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import logo from "../../../assets/logo.png"
 import { AuthContext } from '../../../contexts/AuthProvider';
-
+import './Header.css'
 
 
 const Nav = () => {
@@ -37,7 +37,7 @@ const Nav = () => {
     let [open, setOpen] = useState(false);
     return (
         <div className='shadow-md w-full fixed top-0 z-50'>
-            <div className='md:flex sm:gap-5 items-center justify-between bg-white py-4 md:px-10 px-7'>
+            <div className='md:flex sm:gap-5 items-center justify-between bg-slate-50 py-4 md:px-10 px-7'>
                 <Link to="/" className='font-bold text-2xl cursor-pointer flex items-center text-gray-800'>
                     <img className='w-52' src={logo} alt="" />
                 </Link>

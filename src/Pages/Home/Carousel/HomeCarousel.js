@@ -7,6 +7,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FaAccessibleIcon } from "react-icons/fa";
 
 import img from "../../../assets/images/cavity.png";
+import img1 from "../../../assets/doctor/doctor-1.png";
+import img2 from "../../../assets/doctor/doctor-2-removebg-preview.png";
+import img3 from "../../../assets/doctor/doctor-3-removebg-preview.png";
 
 import "./HomeCarousel.css";
 
@@ -81,10 +84,29 @@ const HomeCarousel = () => {
         useKeyboardArrows
         renderThumbs={renderThumbs}
       >
-        <div className="pt-10">
+        <div className="pt-24">
           <div className="hero ">
             <div className="hero-content flex-col lg:flex-row-reverse">
-              <img src={img} />
+              <img src={img1} alt="" />
+              <div className="text-white text-left">
+                <h1 className="text-5xl font-bold mx-20">Common Health Issue</h1>
+                <p className="py-6 mx-20 text-xl">
+                  Ask anything you would normally ask your GP. You can have an
+                  instant video with one of our GPs via a digital consultation
+                  from anywhere, at any time of day. connect with the right
+                  specialist doctor and to stay healthy. More than 20 different
+                  specialities are available on DocTime. connect with the right
+                  specialist doctor and to stay healthy. More than 20 different
+                  specialities are available on DocTime.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className="pt-10">
+          <div className="hero ">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+              <img src={img1} alt =""/>
               <div className="text-white text-left">
                 <h1 className="text-5xl font-bold mx-14">
                   Common Health Issue
@@ -93,16 +115,20 @@ const HomeCarousel = () => {
                   Ask anything you would normally ask your GP. You can have an
                   instant video with one of our GPs via a digital consultation
                   from anywhere, at any time of day.
+                  connect with the right specialist doctor and to stay healthy.
+                  More than 20 different specialities are available on DocTime.
+                  connect with the right specialist doctor and to stay healthy.
+                  More than 20 different specialities are available on DocTime.
                 </p>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="pt-24">
           <div className="hero ">
             <div className="hero-content flex-col lg:flex-row-reverse">
-              <img src={img} />
+              <img src={img2} alt="" />
               <div className="text-white text-left">
                 <h1 className="text-5xl font-bold mx-24">Specialist Advice</h1>
                 <p className="py-6 mx-24 text-xl">
@@ -121,7 +147,7 @@ const HomeCarousel = () => {
         <div className="pt-24">
           <div className="hero  ">
             <div className="hero-content flex-col lg:flex-row-reverse">
-              <img src={img} />
+              <img src={img3} alt="" />
               <div className="text-white text-left">
                 <h1 className="text-5xl font-bold mx-24">
                   Mental Health and Wellbeing
@@ -136,12 +162,6 @@ const HomeCarousel = () => {
             </div>
           </div>
         </div>
-
-        
-
-        
-
-        
       </Carousel>
     </div>
   );

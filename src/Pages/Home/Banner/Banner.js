@@ -7,8 +7,8 @@ const Banner = () => {
 
 
     return (
-        <div className='bg-img'>
-            <div className="hero min-h-screen my-10">
+        <div className='bg-img text-white'>
+            <div className="hero min-h-screen py-10">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className='container'>
                         <Lottie animationData={doctor} ></Lottie>
@@ -20,6 +20,9 @@ const Banner = () => {
                         <button className="btn btn-primary">Get Started</button>
                     </div>
                 </div>
+            </div>
+            <div className='border-bottom'>
+
             </div>
         </div>
     );

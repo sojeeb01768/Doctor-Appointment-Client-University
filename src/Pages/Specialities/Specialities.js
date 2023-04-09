@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import './Specialities'
 const Specialities = ({ speciality }) => {
     const { id } = speciality
 
@@ -17,11 +17,11 @@ const Specialities = ({ speciality }) => {
     return (
         <div className='mt-20'>
             <Link to={`/specialist/${id}`}>
-                <div className="w-full bg-base-100 shadow-md border">
+                <div className="w-full bg-[#0F172A] shadow-md border text-white">
 
                     <div className="card-body">
                         <div className='lg:flex md:justify-center md:items-center lg:justify-center lg:items-center gap-2'>
-                            <div className='mx-auto w-28 lg:w-48'>
+                            <div className='mx-auto w-28 lg:w-32'>
                                 <img src={speciality?.icon} alt="" />
                             </div>
                             <div className='lg:p-2'>

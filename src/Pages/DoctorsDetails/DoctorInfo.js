@@ -1,51 +1,31 @@
-// import React, { useEffect } from "react";
-// import { useState } from "react";
+import React from "react";
 
-// const DoctorInfo = ({ doctor }) => {
-//   console.log(doctor);
+
+
+
+const DoctorInfo = ({ doctor }) => {
+  console.log(doctor);
 
 //   const imgData = [
 //     {
-//       _id: 30,
-//       title: "Wedding Events",
-//       tag: "Wedding",
+//         _id: 30,
+//         img: 'tmi',
+//         title: 'Wedding Events',
+//         tag: 'Wedding',
 //     },
 //     {
-//       _id: 31,
-//       title: "Social Meetings",
-//       tag: "Social",
+//         _id: 31,
+//         img: 'ami',
+//         title: 'Social Meetings',
+//         tag: 'Social',
 //     },
 //     {
-//       _id: 32,
-//       title: "Wedding Events",
-//       tag: "Wedding",
+//         _id: 33,
+//         img: 'he',
+//         title: 'Birthday Parties',
+//         tag: 'Birthday',
 //     },
-//     {
-//       _id: 33,
-//       title: "Birthday Parties",
-//       tag: "Birthday",
-//     },
-//     {
-//       _id: 34,
-//       title: "Wedding Events",
-//       tag: "Wedding",
-//     },
-//     {
-//       _id: 35,
-//       title: "Social Meetings",
-//       tag: "Social",
-//     },
-//     {
-//       _id: 35,
-//       title: "Wedding Events",
-//       tag: "Wedding",
-//     },
-//     {
-//       _id: 37,
-//       title: "Birthday Parties",
-//       tag: "Birthday",
-//     },
-//   ];
+// ]
 //   const [tag, setTag] = useState("all");
 //   const [allimgData, setAllimgData] = useState(imgData);
 //   useEffect(() => {
@@ -64,57 +44,53 @@
 //     }
 //   }, [tag]);
 
-//   return (
-//     <div className="my-20 lg:mx-32 mx-5">
-//       <div className="flex mb-5 gap-4">
-//         <button
-//           className={`button text-[18px] pb-2 text-primary ${
-//             tag === "Wedding" ? "border-b-2 border-primary" : ""
-//           }`}
-//           onClick={() => setTag("Wedding")}
-//         >
-//           Wedding Events
-//         </button>
-//         <button
-//           className={`button text-[18px] pb-2 text-primary ${
-//             tag === "Birthday" ? "border-b-2 border-primary" : ""
-//           }`}
-//           onClick={() => setTag("Birthday")}
-//         >
-//           Birthday Events
-//         </button>
-//         <button
-//           className={`button text-[18px] pb-2 text-primary ${
-//             tag === "Social" ? "border-b-2 border-primary" : ""
-//           }`}
-//           onClick={() => setTag("Social")}
-//         >
-//           Social Events
-//         </button>
-//       </div>
-//       <div className=" grid gap-[1px] lg:grid-cols-4 grid-cols-2">
-//         {allimgData.map((item) => (
-//           <div key={item._id} className="relative">
-//             <div className="absolute top-0">
-//               <div
-//                 className={`hover:bg-gray-900/80 transition-all hover:block lg:w-[315px] w-[100%] h-[210px]  text-black/0 hover:text-white bg-center bg-cover`}
-//               >
-//                 <h2 className="lg:w-[315px] absolute top-10 left-10 text-[18px] font-bold">
-//                   {item.title}
-//                 </h2>
-//                 <p className="absolute top-16 left-10 ">
-//                   Lorem ipsum dolor sit amet.
-//                 </p>
-//                 <span></span>
-//               </div>
-//               <div></div>
-//             </div>
-//             <img className="" src={item.img} alt="" />
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      {/* <div className="my-20 lg:mx-32 mx-5">
+      <div className="flex mb-5 gap-4">
+        <button
+          className={`button text-[18px] pb-2 text-primary ${
+            tag === "Wedding" ? "border-b-2 border-primary" : ""
+          }`}
+          onClick={() => setTag("Wedding")}
+        >
+          Wedding Events
+        </button>
+        <button
+          className={`button text-[18px] pb-2 text-primary ${
+            tag === "Birthday" ? "border-b-2 border-primary" : ""
+          }`}
+          onClick={() => setTag("Birthday")}
+        >
+          Birthday Events
+        </button>
+        <button
+          className={`button text-[18px] pb-2 text-primary ${
+            tag === "Social" ? "border-b-2 border-primary" : ""
+          }`}
+          onClick={() => setTag("Social")}
+        >
+          Social Events
+        </button>
+      </div>
+      
+      <div className=" grid gap-[1px] lg:grid-cols-4 grid-cols-2">
+        {allimgData.map((item) => (
+          <div key={item._id} className="relative">
+            <p>{item.img}</p>
+          </div>
+        ))}
+      </div>
+    </div> */}
 
-// export default DoctorInfo;
+
+      <h2 className="text-2xl font-semibold">About <span className="font-bold">{doctor.name} - {doctor.designation}</span></h2>
+      <p className="text-justify text-gray-500 mt-3 lg:w-7/12">{doctor.About}</p>
+
+
+
+    </div>
+  );
+};
+
+export default DoctorInfo;

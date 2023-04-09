@@ -1,8 +1,9 @@
 .bg-footer {
-    background-image: url("../../../assets/BG.jpg");
+    /* background-image: url("../../../assets/BG.jpg");
     background-size: cover;
     color: white;
-    padding: 20px;
+    padding: 20px; */
+    background-color: #0E1629;
   }
   
   .hero-content2 {
