@@ -42,24 +42,27 @@ const Signup = () => {
         <div
             style={{
 
-                background: `url(${bg})`,
+                // background: `url(${bg})`,
                 backgroundSize: 'cover'
             }}
-            className='mt-16 '>
+            className='mt-16 bg-[#0F172A]'>
             <section className="sm:h-full md:h-full lg:h-screen">
                 <div className="h-full">
                     <div
                         className="g-6 flex  md:h-cover h-full flex-wrap items-center justify-center lg:justify-between">
                         <div
-                            className="shrink-1 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+                            className="shrink-1 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12 ">
                             <Lottie animationData={loginAnimation}></Lottie>
+                            
                         </div>
-                        <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
+                        
+                        
+                        <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12 ">
                             <form className='p-5 mx-5 rounded-md' onSubmit={handleSubmit(handleSignUp)}>
                                 <div
                                     className="mb-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-white after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
                                     <p
-                                        className="mx-4 mb-0 md:text-4xl lg:text-5xl text-center font-semibold dark:text-white">
+                                        className="mx-4 mb-5 md:text-4xl lg:text-5xl text-center font-semibold dark:text-white ">
                                         Create An Account
                                     </p>
                                 </div>
@@ -67,8 +70,8 @@ const Signup = () => {
 
                                 {/* <!-- Name input --> */}
 
-                                <div className="relative border-b" data-te-input-wrapper-init>
-
+                                <div className="relative">
+                                    <p className='text-white'>Enter Your Name </p>
                                     <input
                                         {...register("name",
                                             {
@@ -77,17 +80,15 @@ const Signup = () => {
                                         )}
                                         // autocomplete="off"
                                         type="text"
-                                        className="peer  placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
+                                        className=" h-10 w-full p-2"
                                         placeholder="Your Name" />
-                                    <label
-                                        className="absolute left-0 -top-3.5 text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">
-                                        Your Full Name
-                                    </label>
+                                  
                                 </div>
                                 {errors.name && <p role="alert" className='text-red-600 text-sm'>{errors.name?.message}</p>}
 
                                 {/* Email input */}
-                                <div className="relative mt-6 border-b" data-te-input-wrapper-init>
+                                <div className="relative mt-6 " >
+                                <p className='text-white'>Enter Your Email </p>
                                     <input
                                         {...register("email",
                                             {
@@ -95,25 +96,22 @@ const Signup = () => {
                                             }
                                         )}
                                         type='email'
-                                        className="peer placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
+                                        className=" h-10 w-full p-2"
                                         placeholder="Email address" />
-                                    <label
-                                        // for="exampleFormControlInput2"
-                                        className="absolute left-0 -top-3.5 text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">
-                                        Email address
-                                    </label>
+                                   
                                 </div>
                                 {errors.email && <p role="alert" className='text-red-600 text-sm'>{errors.email?.message}</p>}
 
                                 {/* Select category*/}
-                                <div className="relative mt-6 " data-te-input-wrapper-init>
-                                    <select className='w-full bg-transparent p-1   border-b'
+                                <div className="relative mt-6 " >
+                                <p className='text-white'>Select Category </p>
+                                    <select className='w-full p-2 '
                                         {...register("category",
                                             {
                                                 required: 'Category Is Required'
                                             }
                                         )}>
-                                        <option value="">Category</option>
+                                        <option  value="">Category</option>
                                         <option value="Patient">Patient</option>
                                         <option value="Doctor">Doctor</option>
                                     </select>
@@ -121,22 +119,25 @@ const Signup = () => {
                                 {errors.category && <p role="alert" className='text-red-600 text-sm'>{errors.category?.message}</p>}
 
 
-                                {/* Image upload
-                                <div className="relative mt-6 border-b bg-transparent" data-te-input-wrapper-init>
+                                {/* Image upload */}
+
+                                <div className="relative mt-6">
+                                <p className='text-white'>Select Image </p>
                                     <input
                                         {...register("image",
                                             {
                                                 required: 'Image Is Required'
                                             }
                                         )}
-                                        className='bg-transparent'
+                                        className='h-10 w-full p-2 bg-white'
                                         type="file" />
                                 </div>
-                                {errors.image && <p role="alert" className='text-red-600 text-sm'>{errors.image?.message}</p>} */}
+                                {errors.image && <p role="alert" className='text-red-600 text-sm'>{errors.image?.message}</p>}
 
 
                                 {/* <!-- Password input --> */}
-                                <div className="relative mt-6 border-b" data-te-input-wrapper-init>
+                                <div className="relative mt-6">
+                                <p className='text-white'>Enter Your Password </p>
                                     <input
                                         {...register("password",
                                             {
@@ -145,23 +146,19 @@ const Signup = () => {
                                             }
                                         )}
                                         type="password"
-                                        className="peer placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
+                                        className=" h-10 w-full p-2"
                                         placeholder="Password" />
-                                    <label
-                                        // for="exampleFormControlInput22"
-                                        className="absolute left-0 -top-3.5 text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm bg-transparent">
-                                        Password
-                                    </label>
+                                   
                                 </div>
                                 {errors.password && <p role="alert" className='text-red-600 text-sm'>{errors.password?.message}</p>}
-                                <div className="text-center lg:text-left mt-6">
+                                <div className="text-center mt-6">
                                 <div className='mb-3'>
                                         {signUpError && <p className='text-red-600 text-sm'>{signUpError}</p>}
                                     </div>
                                     <Button type="submit">SIGN UP</Button>
 
-                                    <p className="text-base-300  mb-0 pt-1 text-sm font-semibold">
-                                        Already have an account? <Link className='text-blue-600 font-bold' to='/login'>LOGIN</Link>
+                                    <p className="text-base-300 mt-5  mb-0 pt-1 text-sm font-semibold">
+                                        Already have an account? <Link className='text-[#E18B01] font-bold' to='/login'>LOGIN</Link>
 
                                     </p>
                                 </div>

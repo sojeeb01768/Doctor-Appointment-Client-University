@@ -45,10 +45,10 @@ const Login = () => {
         <div
             style={{
 
-                background: `url(${bg})`,
+                
                 backgroundSize: 'cover'
             }}
-            className='mt-20 '>
+            className='mt-20  bg-[#0F172A]'>
             {/* <!-- component --> */}
             <section className="sm:h-full md:h-full lg:h-screen">
                 <div className="h-full">
@@ -84,7 +84,8 @@ const Login = () => {
                                     </p>
                                 </div>
                                 {/* Email input */}
-                                <div className="relative mt-6 border-b">
+                                <div className="relative mt-6 ">
+                                    <p className='text-white mb-3'>Enter your Email</p>
                                     <input
                                         {...register("email",
                                             {
@@ -92,18 +93,20 @@ const Login = () => {
                                             }
                                         )}
                                         type='email'
-                                        className="peer placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
+                                        className="h-10 w-full p-2  text-black   "
                                         placeholder="Email address"
                                     />
                                     <label
                                         // for="exampleFormControlInput2"
-                                        className="absolute left-0 -top-3.5 mb-2 text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm">
+                                        // className="absolute left-0 -top-3.5 mb-2 text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm"
+                                        >
                                         Email address
                                     </label>
                                 </div>
                                 {errors.email && <p role="alert" className='text-red-600 text-sm'>{errors.email?.message}</p>}
                                 {/* <!-- Password input --> */}
-                                <div className="relative mt-6 border-b">
+                                <div className="relative">
+                                <p className='text-white mb-3'>Enter your Password</p>
                                     <input
                                         {...register("password",
                                             {
@@ -113,26 +116,27 @@ const Login = () => {
 
                                         )}
                                         type="password"
-                                        className="peer placeholder-transparent h-10 w-full border-b-1 border-white text-gray-900 focus:outline-none focus:borer-rose-600 bg-transparent"
+                                        className="h-10 w-full p-2 "
                                         placeholder="Password"
                                     />
                                     <label
                                         // for="exampleFormControlInput22"
-                                        className="absolute left-0 -top-3.5  text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm bg-transparent">
+                                        // className="absolute left-0 -top-3.5  text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm bg-transparent"
+                                        >
                                         Password
                                     </label>
                                 </div>
                                 {errors.password && <p role="alert" className='text-red-600 text-sm'>{errors.password?.message}</p>}
-                                <div className="text-center mt-5 lg:text-left">
+                                <div className="text-center mt-5">
                                     <div className='mb-3'>
                                         {loginError && <p className='text-red-600 text-sm'>{loginError}</p>}
                                     </div>
 
                                     <Button type="submit">LOGIN</Button>
-                                    <p className="text-base-300 mt-2 mb-0 pt-1 text-sm font-semibold">
-                                        Don't have any account?
-                                        <Link className='text-blue-700 font-bold' to='/signup'>
-                                            Create An Account
+                                    <p className="text-base-300 mt-5 mb-0 pt-1 text-sm font-semibold">
+                                        New to <span className='font-bold'>Doctorian? </span>
+                                        <Link className='text-[#E18B01] font-bold ml-1' to='/signup'>
+                                             Create An Account
                                         </Link>
                                     </p>
                                 </div>
