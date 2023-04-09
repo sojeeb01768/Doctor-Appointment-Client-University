@@ -85,11 +85,16 @@ const HomeCarousel = () => {
         renderThumbs={renderThumbs}
       >
         <div className="pt-24">
-          <div className="hero ">
+          <h1 className="text-center text-white text-5xl font-bold mb-5">
+            When to use Doctorian
+          </h1>
+          <div className="hero">
             <div className="hero-content flex-col lg:flex-row-reverse">
               <img src={img1} alt="" />
               <div className="text-white text-left">
-                <h1 className="text-5xl font-bold mx-20">Common Health Issue</h1>
+                <h1 className="lg:text-5xl md:text-3xl text-2xl font-bold mx-20">
+                  Common Health Issue
+                </h1>
                 <p className="py-6 mx-20 text-xl">
                   Ask anything you would normally ask your GP. You can have an
                   instant video with one of our GPs via a digital consultation
@@ -130,7 +135,9 @@ const HomeCarousel = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
               <img src={img2} alt="" />
               <div className="text-white text-left">
-                <h1 className="text-5xl font-bold mx-24">Specialist Advice</h1>
+                <h1 className="lg:text-5xl md:text-3xl text-2xl font-bold mx-24">
+                  Specialist Advice
+                </h1>
                 <p className="py-6 mx-24 text-xl">
                   Sometimes it’s helpful to see a specialist when you want. For
                   gynaecology, child specialists, dermatology, cardiology,
@@ -149,7 +156,7 @@ const HomeCarousel = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
               <img src={img3} alt="" />
               <div className="text-white text-left">
-                <h1 className="text-5xl font-bold mx-24">
+                <h1 className="lg:text-5xl md:text-3xl text-2xl font-bold mx-24">
                   Mental Health and Wellbeing
                 </h1>
                 <p className="py-6 mx-24 text-xl">

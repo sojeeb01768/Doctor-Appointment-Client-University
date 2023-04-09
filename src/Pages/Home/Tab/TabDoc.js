@@ -20,7 +20,7 @@ const TabDoc = () => {
                   classNames(
                     "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white",
                     selected
-                      ? "bg-green-700 text-white border-emerald-700"
+                      ? "bg-[#07acf3] text-white"
                       : " text-white"
                   )
                 }
@@ -35,7 +35,7 @@ const TabDoc = () => {
                   classNames(
                     "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white",
                     selected
-                      ? "bg-green-700 text-white  border-emerald-700"
+                      ? "bg-[#07acf3] text-white  "
                       : " text-white"
                   )
                 }
@@ -48,7 +48,7 @@ const TabDoc = () => {
                   classNames(
                     "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white",
                     selected
-                      ? "bg-green-700 text-white border-emerald-700"
+                      ? "bg-[#07acf3] text-white "
                       : " text-white"
                   )
                 }
@@ -61,7 +61,7 @@ const TabDoc = () => {
                   classNames(
                     "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white",
                     selected
-                      ? "bg-green-700 text-white  border-emerald-700"
+                      ? "bg-[#07acf3] text-white  "
                       : " text-white rounded-lg"
                   )
                 }

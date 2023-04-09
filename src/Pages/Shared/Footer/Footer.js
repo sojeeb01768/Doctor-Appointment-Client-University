@@ -1,19 +1,80 @@
 import React from "react";
 import "./Footes.css";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaPhoneSquareAlt } from "react-icons/fa";
 import { FaWarehouse } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
+
+// import { FaMapMarkerAlt } from "react-icons/fa";
+// import { FaPhoneAlt } from "react-icons/fa";
+// import { FaWarehouse } from "react-icons/fa";
+// import { FaLinkedin } from "react-icons/fa";
+// import { FaTwitter } from "react-icons/fa";
+// import { FaInstagram } from "react-icons/fa";
+// import { FaFacebookF } from "react-icons/fa";
+import logo from "../../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 //Footer section
 const Footer = () => {
-  
   return (
-    <div className="bg-footer pb-14 text-white">
-      <div className="hero ">
+    <div className="bg-footer">
+      <div className="bg-slate-50">
+        <footer className="footer p-10  text-base-content">
+          <div className="">
+            <img src={logo} alt="" className="w-52 mb-3" />
+            <p className="text-2xl">
+              <div className="flex items-center gap-3">
+                <FaPhoneSquareAlt />
+                +880 1521205892
+              </div>
+              <div className="flex items-center gap-3">
+                <FaPhoneSquareAlt />
+                +880 1768670013
+              </div>
+              <div className="flex items-center gap-3">
+                <FaWarehouse />
+                support@doctorian.com.bd
+              </div>
+            </p>
+          </div>
+
+          <div className="uppercase font-semibold">
+            <Link className="link link-hover">About Us</Link>
+            <Link className="link link-hover">Blog</Link>
+            <Link className="link link-hover">Faq</Link>
+            <Link className="link link-hover">Sign Up</Link>
+          </div>
+
+          <div className="uppercase font-semibold">
+            <Link className="link link-hover">Contact Us</Link>
+            <Link className="link link-hover">Terms & Conditions</Link>
+            <Link className="link link-hover">Privacy Policy</Link>
+            <Link className="link link-hover">Help</Link>
+          </div>
+          <div>
+            <span className="uppercase font-semibold">Social</span>
+            <div className="grid grid-flow-col gap-4 text-[25px]">
+              <Link>
+                <FaFacebookF />
+              </Link>
+              <Link>
+                <FaTwitter />
+              </Link>
+              <Link>
+                <FaInstagram />{" "}
+              </Link>
+            </div>
+          </div>
+        </footer>
+        <div className="border-bottom-footer"></div>
+
+        <div className="text-center text-black mt-6 mb-6 text-xl font-semibold">
+          Copyright © 2022 Doc<span className="text-[#EE454A]">torian</span>. All rights reserved.
+        </div>
+      </div>
+      {/* <div className="hero ">
         <div className="hero-content2 lg:gap-36 flex-col lg:flex-row mt-8">
           <div className="lg:text-left">
             <div className="mt-12">
@@ -125,7 +186,7 @@ const Footer = () => {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

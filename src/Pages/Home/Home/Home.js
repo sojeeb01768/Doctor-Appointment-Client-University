@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import HomeCarousel from "../Carousel/HomeCarousel";
 import StickyCards from "../StickyCards/StickyCards";
 import TabDoc from "../Tab/TabDoc";
+import Faq from "../Faq/Faq";
 
 
 // import Cards from "../Cards/Cards";
@@ -16,6 +17,7 @@ const Home = () => {
       <StickyCards></StickyCards>
       <HomeCarousel></HomeCarousel>
       <TabDoc></TabDoc>
+      <Faq></Faq>
     </div>
     
   );

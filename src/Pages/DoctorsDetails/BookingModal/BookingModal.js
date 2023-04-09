@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import React, { useContext } from "react";
 import { AuthContext } from "./../../../contexts/AuthProvider";
+import Button from "../../Shared/Header/Button";
 
 const BookingModal = ({ doctor, selectedDate }) => {
   const { specialities, user } = useContext(AuthContext);
@@ -8,11 +9,10 @@ const BookingModal = ({ doctor, selectedDate }) => {
   console.log(specialities);
   console.log(doctor);
   console.log(user);
-  const date = format(selectedDate, 'PP')
+  const date = format(selectedDate, "PP");
 
-
-  const handleBooking = event => {
-    event.preventDefault()
+  const handleBooking = (event) => {
+    event.preventDefault();
     const form = event.target;
     const slot = form.slot.value;
     const patientName = form.name.value;
@@ -20,9 +20,9 @@ const BookingModal = ({ doctor, selectedDate }) => {
     const phone = form.phone.value;
 
     console.log(slot, patientName, phone, email);
+  };
 
-}
-
+  
 
 
 
@@ -38,24 +38,51 @@ const BookingModal = ({ doctor, selectedDate }) => {
           >
             ✕
           </label>
-          <h3 className="text-3xl font-bold text-green-700">{doctor.specialities} Specialist</h3> 
+          <h3 className="text-3xl font-bold text-green-700">
+            {doctor.specialities} Specialist
+          </h3>
 
           <h3 className="text-2xl mt-3">Dr. {doctor.name}</h3>
-          <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-8'>
-                        <input type="text" disabled value={date} className="input w-full input-bordered" />
-                        <select name='slot' className="select select-bordered w-full">
-                            {
-                                doctor.slots.map((slot, id) => <option
-                                    key={id}
-                                    value={slot}
-                                >{slot}</option>)
-                            }
-                        </select>
-                        <input defaultValue={user?.displayName}  name='name' type="text" placeholder="Your Name" className="input w-full input-bordered" />
-                        <input defaultValue={user?.email} disabled name='email' type="email" placeholder="Email Address" className="input w-full input-bordered" />
-                        <input name='phone' type="text" placeholder="Phone Number" className="input w-full input-bordered" />
-                        <input className='w-full btn btn-accent' type="submit" value="Submit" />
-                    </form>
+          <form
+            onSubmit={handleBooking}
+            className="grid grid-cols-1 gap-3 mt-8"
+          >
+            <input
+              type="text"
+              disabled
+              value={date}
+              className="input w-full input-bordered"
+            />
+            <select name="slot" className="select select-bordered w-full">
+              {doctor.slots.map((slot, id) => (
+                <option key={id} value={slot}>
+                  {slot}
+                </option>
+              ))}
+            </select>
+            <input
+              defaultValue={user?.displayName}
+              name="name"
+              type="text"
+              placeholder="Your Name"
+              className="input w-full input-bordered"
+            />
+            <input
+              defaultValue={user?.email}
+              disabled
+              name="email"
+              type="email"
+              placeholder="Email Address"
+              className="input w-full input-bordered"
+            />
+            <input
+              name="phone"
+              type="text"
+              placeholder="Phone Number"
+              className="input w-full input-bordered"
+            />
+            <Button>Submit</Button>
+          </form>
         </div>
       </div>
     </>

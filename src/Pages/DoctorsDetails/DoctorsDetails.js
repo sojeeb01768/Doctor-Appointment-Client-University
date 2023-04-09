@@ -39,10 +39,6 @@ const DoctorsDetails = () => {
                 </div>
               </div>
             </div>
-
-            <div className="mt-10 lg:mt-0 md:mt-0">
-              <button className="btn btn-primary">Book Doctor</button>
-            </div>
           </div>
 
           <div className="divider mt-8"></div>
