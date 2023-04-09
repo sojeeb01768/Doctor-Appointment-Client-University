@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { DayPicker } from "react-day-picker";
-import { format } from "date-fns";
 const AppointmentBanner = ({ selectedDate, setSelectedDate, doctor }) => {
 
 
   const disabledDays = [
     { from: new Date(2000, 1, 1), to: new Date(2023, 3, 2) }
   ];
-  
+
 
   return (
 
@@ -30,11 +29,11 @@ const AppointmentBanner = ({ selectedDate, setSelectedDate, doctor }) => {
                 <small>Price: {doctor.price} Taka</small>
               </p>
 
-            <div className="">
-              <label
-              disabled = {doctor.slots.length === 0}
-              htmlFor="booking-modal" className="btn btn-primary">Book Appointment</label>
-            </div>
+              <div className="">
+                <label
+                  disabled={doctor.slots.length === 0}
+                  htmlFor="booking-modal" className="btn btn-primary">Book Appointment</label>
+              </div>
 
             </div>
           </div>
@@ -45,9 +44,9 @@ const AppointmentBanner = ({ selectedDate, setSelectedDate, doctor }) => {
             mode='single'
             selected={selectedDate}
             onSelect={(selectedDate) => {
-                if(selectedDate){
+              if (selectedDate) {
                 setSelectedDate(selectedDate)
-                }
+              }
             }}
             disabled={disabledDays}
           />

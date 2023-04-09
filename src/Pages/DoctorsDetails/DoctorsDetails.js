@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import DoctorInfo from "./DoctorInfo";
 import AppointmentBanner from "./AppointmentBanner";
 import AvailableAppointment from "./AvailableAppointment";
 import BookingModal from "./BookingModal/BookingModal";
 
+
 const DoctorsDetails = () => {
   const doctor = useLoaderData();
-  console.log(doctor);
-
+  // console.log(doctor);
   const [selectedDate, setSelectedDate] = useState(new Date());
+
 
   return (
     <div className="lg:mt-20 lg:mb-0 mt-28 mb-8 px-4 mx-auto md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -38,10 +38,6 @@ const DoctorsDetails = () => {
               </div>
             </div>
           </div>
-
-          <div className="mt-10 lg:mt-0 md:mt-0">
-            <button className="btn btn-primary">Book Doctor</button>
-          </div>
         </div>
 
         <div className="divider mt-8"></div>
@@ -66,7 +62,6 @@ const DoctorsDetails = () => {
           doctor={doctor}
         ></AppointmentBanner>
       </div>
-
       <BookingModal
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}

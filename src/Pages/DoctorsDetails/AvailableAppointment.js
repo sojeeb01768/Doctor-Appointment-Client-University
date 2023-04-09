@@ -2,7 +2,7 @@ import React from "react";
 import { format } from "date-fns";
 
 const AvailableAppointment = ({ selectedDate, doctor }) => {
-  console.log(doctor);
+  // console.log(doctor);
 
   return (
     <div>

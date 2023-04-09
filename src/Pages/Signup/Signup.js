@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import bg from '../../assets/BG-8.jpg';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Shared/Header/Button';
 import { useForm } from "react-hook-form";
 import Lottie from 'lottie-react';
@@ -16,6 +15,7 @@ const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     // const [data, setData] = useState("");
     const [signUpError, setSignUpError] = useState("");
+    const navigate = useNavigate();
 
     const handleSignUp = data => {
         // console.log(data);
@@ -29,12 +29,30 @@ const Signup = () => {
                     displayName: data.name
                 }
                 updateUserProfile(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        saveUserToDb(data.name, data.email, data.category);
+                    })
                     .catch(error => console.log(error))
             })
             .catch(error => {
                 console.error(error);
                 setSignUpError(error.message);
+            })
+    }
+
+    const saveUserToDb = (name, email, category) => {
+        const user = { name, email, category };
+        fetch('http://localhost:5000/users', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                navigate('/');
             })
     }
 
@@ -53,10 +71,10 @@ const Signup = () => {
                         <div
                             className="shrink-1 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12 ">
                             <Lottie animationData={loginAnimation}></Lottie>
-                            
+
                         </div>
-                        
-                        
+
+
                         <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12 ">
                             <form className='p-5 mx-5 rounded-md' onSubmit={handleSubmit(handleSignUp)}>
                                 <div
@@ -82,13 +100,13 @@ const Signup = () => {
                                         type="text"
                                         className=" h-10 w-full p-2"
                                         placeholder="Your Name" />
-                                  
+
                                 </div>
                                 {errors.name && <p role="alert" className='text-red-600 text-sm'>{errors.name?.message}</p>}
 
                                 {/* Email input */}
                                 <div className="relative mt-6 " >
-                                <p className='text-white'>Enter Your Email </p>
+                                    <p className='text-white'>Enter Your Email </p>
                                     <input
                                         {...register("email",
                                             {
@@ -98,20 +116,20 @@ const Signup = () => {
                                         type='email'
                                         className=" h-10 w-full p-2"
                                         placeholder="Email address" />
-                                   
+
                                 </div>
                                 {errors.email && <p role="alert" className='text-red-600 text-sm'>{errors.email?.message}</p>}
 
                                 {/* Select category*/}
                                 <div className="relative mt-6 " >
-                                <p className='text-white'>Select Category </p>
+                                    <p className='text-white'>Select Category </p>
                                     <select className='w-full p-2 '
                                         {...register("category",
                                             {
                                                 required: 'Category Is Required'
                                             }
                                         )}>
-                                        <option  value="">Category</option>
+                                        <option value="">Category</option>
                                         <option value="Patient">Patient</option>
                                         <option value="Doctor">Doctor</option>
                                     </select>
@@ -121,8 +139,8 @@ const Signup = () => {
 
                                 {/* Image upload */}
 
-                                <div className="relative mt-6">
-                                <p className='text-white'>Select Image </p>
+                                {/* <div className="relative mt-6">
+                                    <p className='text-white'>Select Image </p>
                                     <input
                                         {...register("image",
                                             {
@@ -132,12 +150,12 @@ const Signup = () => {
                                         className='h-10 w-full p-2 bg-white'
                                         type="file" />
                                 </div>
-                                {errors.image && <p role="alert" className='text-red-600 text-sm'>{errors.image?.message}</p>}
+                                {errors.image && <p role="alert" className='text-red-600 text-sm'>{errors.image?.message}</p>} */}
 
 
                                 {/* <!-- Password input --> */}
                                 <div className="relative mt-6">
-                                <p className='text-white'>Enter Your Password </p>
+                                    <p className='text-white'>Enter Your Password </p>
                                     <input
                                         {...register("password",
                                             {
@@ -148,11 +166,11 @@ const Signup = () => {
                                         type="password"
                                         className=" h-10 w-full p-2"
                                         placeholder="Password" />
-                                   
+
                                 </div>
                                 {errors.password && <p role="alert" className='text-red-600 text-sm'>{errors.password?.message}</p>}
                                 <div className="text-center mt-6">
-                                <div className='mb-3'>
+                                    <div className='mb-3'>
                                         {signUpError && <p className='text-red-600 text-sm'>{signUpError}</p>}
                                     </div>
                                     <Button type="submit">SIGN UP</Button>
