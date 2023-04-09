@@ -170,6 +170,9 @@ const HomeCarousel = () => {
           </div>
         </div>
       </Carousel>
+      <div className='border-bottom'>
+
+            </div>
     </div>
   );
 };

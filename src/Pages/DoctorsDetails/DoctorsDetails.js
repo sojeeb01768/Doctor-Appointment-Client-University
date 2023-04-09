@@ -57,11 +57,13 @@ const DoctorsDetails = () => {
             setSelectedDate={setSelectedDate}
             doctor={doctor}
           ></AvailableAppointment>
+
           <AppointmentBanner
             selectedDate={selectedDate}
             setSelectedDate={setSelectedDate}
             doctor={doctor}
           ></AppointmentBanner>
+
         </div>
 
         <BookingModal
@@ -69,6 +71,7 @@ const DoctorsDetails = () => {
           setSelectedDate={setSelectedDate}
           doctor={doctor}
         ></BookingModal>
+        
       </div>
     </div>
   );

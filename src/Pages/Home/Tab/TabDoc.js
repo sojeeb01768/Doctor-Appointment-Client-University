@@ -129,6 +129,10 @@ const TabDoc = () => {
           </div>
         </Tab.Group>
       </div>
+
+      <div className='border-bottom'>
+
+            </div>
     </div>
     );
 };
