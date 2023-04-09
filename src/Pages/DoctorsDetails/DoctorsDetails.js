@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import DoctorInfo from "./DoctorInfo";
 import AppointmentBanner from "./AppointmentBanner";
 import AvailableAppointment from "./AvailableAppointment";
 import BookingModal from "./BookingModal/BookingModal";
 
+
 const DoctorsDetails = () => {
   const doctor = useLoaderData();
-  console.log(doctor);
-
+  // console.log(doctor);
   const [selectedDate, setSelectedDate] = useState(new Date());
+
 
   return (
     <div className="bg-[#0E1629] ">
@@ -73,6 +73,11 @@ const DoctorsDetails = () => {
         ></BookingModal>
         
       </div>
+      <BookingModal
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+        doctor={doctor}
+      ></BookingModal>
     </div>
   );
 };

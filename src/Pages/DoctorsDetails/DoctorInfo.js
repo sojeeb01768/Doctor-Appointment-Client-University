@@ -4,7 +4,7 @@ import React from "react";
 
 
 const DoctorInfo = ({ doctor }) => {
-  console.log(doctor);
+  // console.log(doctor);
 
 //   const imgData = [
 //     {

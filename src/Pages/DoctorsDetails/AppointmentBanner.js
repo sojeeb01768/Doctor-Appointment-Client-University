@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { DayPicker } from "react-day-picker";
-import { format } from "date-fns";
 const AppointmentBanner = ({ selectedDate, setSelectedDate, doctor }) => {
   const disabledDays = [
     { from: new Date(2000, 1, 1), to: new Date(2023, 3, 2) },

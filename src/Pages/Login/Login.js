@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from '../Shared/Header/Button';
 import './Login.css';
-import bg from '../../assets/BG-8.jpg';
 import Lottie from 'lottie-react';
 import GoogleLogin from '../../assets/1534129544.svg';
 import FacebookLogin from '../../assets/facebook-logo-2019.svg';
@@ -45,7 +44,7 @@ const Login = () => {
         <div
             style={{
 
-                
+
                 backgroundSize: 'cover'
             }}
             className='mt-20  bg-[#0F172A]'>
@@ -97,16 +96,16 @@ const Login = () => {
                                         placeholder="Email address"
                                     />
                                     <label
-                                        // for="exampleFormControlInput2"
-                                        // className="absolute left-0 -top-3.5 mb-2 text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm"
-                                        >
+                                    // for="exampleFormControlInput2"
+                                    // className="absolute left-0 -top-3.5 mb-2 text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm"
+                                    >
                                         Email address
                                     </label>
                                 </div>
                                 {errors.email && <p role="alert" className='text-red-600 text-sm'>{errors.email?.message}</p>}
                                 {/* <!-- Password input --> */}
                                 <div className="relative">
-                                <p className='text-white mb-3'>Enter your Password</p>
+                                    <p className='text-white mb-3'>Enter your Password</p>
                                     <input
                                         {...register("password",
                                             {
@@ -120,9 +119,9 @@ const Login = () => {
                                         placeholder="Password"
                                     />
                                     <label
-                                        // for="exampleFormControlInput22"
-                                        // className="absolute left-0 -top-3.5  text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm bg-transparent"
-                                        >
+                                    // for="exampleFormControlInput22"
+                                    // className="absolute left-0 -top-3.5  text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-white peer-focus:text-sm bg-transparent"
+                                    >
                                         Password
                                     </label>
                                 </div>
@@ -136,7 +135,7 @@ const Login = () => {
                                     <p className="text-base-300 mt-5 mb-0 pt-1 text-sm font-semibold">
                                         New to <span className='font-bold'>Doctorian? </span>
                                         <Link className='text-[#E18B01] font-bold ml-1' to='/signup'>
-                                             Create An Account
+                                            Create An Account
                                         </Link>
                                     </p>
                                 </div>
