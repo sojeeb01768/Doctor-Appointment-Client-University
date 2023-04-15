@@ -4,13 +4,26 @@ import DoctorInfo from "./DoctorInfo";
 import AppointmentBanner from "./AppointmentBanner";
 import AvailableAppointment from "./AvailableAppointment";
 import BookingModal from "./BookingModal/BookingModal";
-
+import { format } from 'date-fns';
+import { useQuery } from '@tanstack/react-query';
 
 const DoctorsDetails = () => {
+
   const doctor = useLoaderData();
+  console.log(doctor);
   // console.log(doctor);
+
   const [selectedDate, setSelectedDate] = useState(new Date());
 
+  const date = format(selectedDate, 'PP')
+
+  const { data: appointmentOptions = [], refetch, isLoading } = useQuery({
+    queryKey: ['doctorDetails', date],
+    queryFn: () => fetch(`http://localhost:5000/doctor-details?date=${date}`)
+        .then(res => res.json())
+})
+
+console.log(appointmentOptions);
 
   return (
     <div className="bg-[#0E1629] ">

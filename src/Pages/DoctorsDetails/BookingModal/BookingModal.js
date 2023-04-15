@@ -22,16 +22,17 @@ const BookingModal = ({ doctor, selectedDate }) => {
     const patientName = form.name.value;
     const patientEmail = form.email.value;
     const patientPhone = form.phone.value;
+    const doctorName = doctor.name; 
 
     // console.log(date, slot, patientName, phone, email);
 
     const booking = {
       appointmentDate: date,
-      appointmentTime: slot,
+      slot: slot,
       patientEmail,
       patientName,
       patientPhone,
-      doctor
+      doctorName
     }
     console.log(booking);
 

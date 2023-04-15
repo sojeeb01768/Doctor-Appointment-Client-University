@@ -33,12 +33,14 @@ const router = createBrowserRouter([
                 path: '/specialities',
                 element: <Specialities></Specialities>
             },
+
             {
                 path: '/doctorsDetails/:id',
                 element: <DoctorsDetails></DoctorsDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/doctor-details/${params.id}`)
 
             },
+            
             {
                 path: '/login',
                 element: <Login></Login>
