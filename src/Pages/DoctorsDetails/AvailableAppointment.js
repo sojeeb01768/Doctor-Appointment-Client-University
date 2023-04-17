@@ -7,7 +7,16 @@ const AvailableAppointment = ({ selectedDate, doctor }) => {
   return (
     <div>
       <div>
-        <p  className="text-center mt-20 text-2xl font-semibold">Available Appointment on <span className="font-bold"> {format(selectedDate, "PP")}</span></p>
+        <div  className="text-center mt-20  font-semibold">
+          <span>Availablity </span>
+          <span className=""> {doctor?.AvailabilityWeekFrom}</span> -
+          <span className=""> {doctor?.AvailabilityWeekTo}</span> <br />
+          (<span className="text-sm">{doctor?.AvailabilityTimeFrom}</span> - 
+          <span className="text-sm">{doctor?.AvailabilityTimeTo}</span>
+
+
+          )
+          </div>
       </div>
     </div>
   );

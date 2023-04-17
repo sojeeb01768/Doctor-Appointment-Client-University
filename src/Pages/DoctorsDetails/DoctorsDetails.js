@@ -10,24 +10,24 @@ import { useQuery } from '@tanstack/react-query';
 const DoctorsDetails = () => {
 
   const doctor = useLoaderData();
-  console.log(doctor);
+  // console.log(doctor);
   // console.log(doctor);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
 
-  const date = format(selectedDate, 'PP')
+//   const date = format(selectedDate, 'PP')
 
-  const { data: appointmentOptions = [], refetch, isLoading } = useQuery({
-    queryKey: ['doctorDetails', date],
-    queryFn: () => fetch(`http://localhost:5000/doctor-details?date=${date}`)
-        .then(res => res.json())
-})
+//   const { data: appointmentOptions = [], refetch, isLoading } = useQuery({
+//     queryKey: ['doctorDetails', date],
+//     queryFn: () => fetch(`http://localhost:5000/doctor-details?date=${date}`)
+//         .then(res => res.json())
+// })
 
-console.log(appointmentOptions);
+// console.log(appointmentOptions);
 
   return (
     <div className="bg-[#0E1629] ">
-      <div className="lg:mt-20 lg:mb-0 mt-28 mb-8 px-4 mx-auto md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
+      <div className="lg:mt-20 lg:mb-0 mt-20 mb-8 px-4 mx-auto md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 py-20 ">
         <div className="rounded-xl p-5 bg-white">
           <div className="lg:flex md:flex md:justify-between  md:items-center lg:justify-between lg:items-center lg:flex-row">
             <div className="flex flex-col lg:flex-row">

@@ -9,6 +9,9 @@ import Signup from "../../Pages/Signup/Signup";
 import Specialist from "../../Pages/Specialist/Specialist";
 import Specialities from "../../Pages/Specialities/Specialities";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import DashboardLayout from "../../Layout/DashboardLayout";
+import MyAppointment from "../../Pages/DashBoard/MyAppointment/MyAppointment";
+import Appointment from "../../Pages/Appointment/Appointment/Appointment";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: '/consultation',
                 element: <Consultation></Consultation>
+            },
+            {
+                path:'/appointment',
+                element:<Appointment></Appointment>
             },
             {
                 path: '/specialist/:id',
@@ -53,7 +60,13 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
+            {
+                path:'/dashboard',
+                element:<MyAppointment></MyAppointment>
+            }
+        ]
     }
 ])
 export default router;

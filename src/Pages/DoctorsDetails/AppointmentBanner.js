@@ -16,19 +16,23 @@ const AppointmentBanner = ({ selectedDate, setSelectedDate, doctor }) => {
                 {doctor.name}
               </h2>
               <p>
+                <span className="text-sm">{doctor?.AvailabilityTimeFrom}</span> -
+                <span className="text-sm">{doctor?.AvailabilityTimeTo}</span>
+              </p>
+              {/* <p>
                 {doctor.slots.length > 0 ? doctor.slots[0] : "Try another day"}
               </p>
               <p>
                 {doctor.slots.length}{" "}
                 {doctor.slots.length > 1 ? "spaces" : "space"} available
-              </p>
+              </p> */}
               <p>
                 <small>Price: {doctor.price} Taka</small>
               </p>
 
               <div className="mt-2">
                 <label
-                  disabled={doctor.slots.length === 0}
+
                   htmlFor="booking-modal"
                   className="bg-[#07acf3] text-white font-[Poppins] py-3 px-5 rounded hover:bg-[#38BDF8]
               duration-800 font-semibold cursor-pointer"
@@ -40,7 +44,7 @@ const AppointmentBanner = ({ selectedDate, setSelectedDate, doctor }) => {
           </div>
         </div>
 
-        <div className="mb-0">
+        {/* <div className="mb-0">
           <DayPicker
             mode="single"
             selected={selectedDate}
@@ -51,7 +55,7 @@ const AppointmentBanner = ({ selectedDate, setSelectedDate, doctor }) => {
             }}
             disabled={disabledDays}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
