@@ -65,11 +65,11 @@ const DoctorsDetails = () => {
 
           <DoctorInfo doctor={doctor}></DoctorInfo>
 
-          <AvailableAppointment
+          {/* <AvailableAppointment
             selectedDate={selectedDate}
             setSelectedDate={setSelectedDate}
             doctor={doctor}
-          ></AvailableAppointment>
+          ></AvailableAppointment> */}
 
           <AppointmentBanner
             selectedDate={selectedDate}

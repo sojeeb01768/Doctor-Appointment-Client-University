@@ -1,16 +1,35 @@
 import React from 'react';
 import img from '../../../assets/images/chair.png'
+import { DayPicker } from 'react-day-picker';
 
-const AppointmentBanner = () => {
+
+const AppointmentBanner = ({ selectedDate, setSelectedDate }) => {
+    const disabledDays = [
+        { from: new Date(2000, 1, 1), to: new Date(2023, 4, 17) },
+    ];
+
+
+
+
     return (
-        <header>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src={img} className="max-w-sm rounded-lg shadow-2xl" />
-                    <div>
-                        <h1 className="text-5xl font-bold">Box Office News!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-primary">Get Started</button>
+        <header className='my-2'>
+            <div className="hero min-h-screen ">
+                <div className="hero-content flex-col lg:flex-row-reverse  gap-10">
+                    <img src={img} alt='' className=" lg:w-8/12 md:w-9/12 w-md rounded-lg shadow-2xl" />
+                    <div className='mr-6'>
+                        <DayPicker
+                            mode="single"
+
+                            selected={selectedDate}
+                            onSelect={(selectedDate) => {
+                                if (selectedDate) {
+                                    setSelectedDate(selectedDate);
+                                }
+                            }}
+                            disabled={disabledDays}
+
+                        />
+                        {/* <p className='ml-6'>You have selected: {format(selectedDate, 'PP')}.</p>; */}
                     </div>
                 </div>
             </div>

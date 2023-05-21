@@ -24,7 +24,7 @@ const Nav = () => {
             <li className='mb-2 md:mb-0 md:pt-0 lg:mb-0 lg:pt-0 pt-2'><Link to='/'>HOME</Link></li>
             <li className='mb-2 md:mb-0 lg:mb-0'><Link to='/consultation'>CONSULTATION</Link></li>
             <li className='mb-2 md:mb-0 lg:mb-0'><Link to='/appointment'>APPOINTMENT</Link></li>
-            <li className='mb-2 md:mb-0 lg:mb-0'><Link to='/'>ABOUT</Link></li>
+            {/* <li className='mb-2 md:mb-0 lg:mb-0'><Link to='/'>ABOUT</Link></li> */}
 
             {
                 user?.uid ?
