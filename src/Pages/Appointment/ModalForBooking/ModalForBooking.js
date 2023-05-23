@@ -4,9 +4,11 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const ModalForBooking = ({ doctorForTreatment, setDoctorForTreatment, selectedDate, refetch }) => {
-    const { name, slots, designation, hospital, specialities, image } = doctorForTreatment; //doctorForTreatment is in another name of appointment
+    const { name, slots, designation, hospital, specialities, image, price, email:doctorEmail } = doctorForTreatment; //doctorForTreatment is in another name of appointment
     const date = format(selectedDate, 'PP');
-    // console.log(doctorForTreatment);
+
+    console.log(doctorForTreatment);
+
     const { user } = useContext(AuthContext);
 
     const handleBooking = event => {
@@ -20,12 +22,14 @@ const ModalForBooking = ({ doctorForTreatment, setDoctorForTreatment, selectedDa
         const booking = {
             appointmentDate: date,
             doctorName: name,
+            doctorEmail,
             doctorImage: image,
             designation: designation,
             specialities: specialities,
             hospital: hospital,
             patientName,
             slot,
+            price,
             patientEmail: email,
             patientPhone: phone
 

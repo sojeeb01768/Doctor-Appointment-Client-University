@@ -41,7 +41,7 @@ const Nav = () => {
     return (
         <div className='shadow-md w-full fixed top-0 z-50'>
 
-            <div className='md:flex sm:gap-5 items-center justify-between bg-slate-50 py-4 md:px-10 px-7'>
+            <div className='md:flex sm:gap-5 items-center justify-between bg-white py-4 md:px-10 px-7'>
                 <label htmlFor="dashboard" className="text-3xl absolute left-2 top-6 cursor-pointer lg:hidden">
                     <ion-icon name={open ? 'close' : 'menu'}></ion-icon>
                 </label>
