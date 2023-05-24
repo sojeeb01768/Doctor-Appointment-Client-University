@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { format } from 'date-fns';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
+import InputMask from 'react-input-mask';
 
 const ModalForBooking = ({ doctorForTreatment, setDoctorForTreatment, selectedDate, refetch }) => {
-    const { name, slots, designation, hospital, specialities, image, price, email:doctorEmail } = doctorForTreatment; //doctorForTreatment is in another name of appointment
+    const { name, slots, designation, hospital, specialities, image, price, email: doctorEmail } = doctorForTreatment; //doctorForTreatment is in another name of appointment
     const date = format(selectedDate, 'PP');
 
     console.log(doctorForTreatment);
@@ -102,7 +103,18 @@ const ModalForBooking = ({ doctorForTreatment, setDoctorForTreatment, selectedDa
                         </select>
                         <input name="patientName" defaultValue={user?.displayName} readOnly required type="text" placeholder="Enter Your Name" className="input input-bordered input-info w-full " />
                         <input name="email" defaultValue={user?.email} readOnly required type="email" placeholder="Enter Your Email" className="input input-bordered input-info w-full " />
-                        <input name="phone" required type="number" placeholder="Enter Your phone number" className="input input-bordered input-info w-full " />
+
+
+                        {/* <input name="phone" maxLength={11} required type="text" placeholder="Enter Your phone number" className="input input-bordered input-info w-full " /> */}
+                        <InputMask
+                            required
+                            className="input input-bordered input-info w-full"
+                            name="phone"
+                            mask="99999-999999" // specify the desired phone number format
+                            placeholder="Enter phone number"
+
+                        />
+
                         <input type="submit" className='bg-[#38BDF8] text-lg text-white font-[Poppins] py-2  rounded hover:bg-[#07acf3]
                         duration-800 font-semibold cursor-pointe text-center w-full ' value="Submit" />
                     </form>
