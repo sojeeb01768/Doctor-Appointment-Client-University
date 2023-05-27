@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Consultation from "../../Pages/Consultation/Consultation";
-import DashBoard from "../../Pages/DashBoard/DashBoard/DashBoard";
 import DoctorsDetails from "../../Pages/DoctorsDetails/DoctorsDetails";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -9,6 +8,11 @@ import Signup from "../../Pages/Signup/Signup";
 import Specialist from "../../Pages/Specialist/Specialist";
 import Specialities from "../../Pages/Specialities/Specialities";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import DashboardLayout from "../../Layout/DashboardLayout";
+import MyAppointment from "../../Pages/DashBoard/MyAppointment/MyAppointment";
+import Appointment from "../../Pages/Appointment/Appointment/Appointment";
+import AllUsers from "../../Pages/DashBoard/AllUsers/AllUsers";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: '/consultation',
                 element: <Consultation></Consultation>
+            },
+            {
+                path: '/appointment',
+                element: <Appointment></Appointment>
             },
             {
                 path: '/specialist/:id',
@@ -40,7 +48,7 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/doctor-details/${params.id}`)
 
             },
-            
+
             {
                 path: '/login',
                 element: <Login></Login>
@@ -53,7 +61,21 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <MyAppointment></MyAppointment>
+            },
+            {
+                path: '/dashboard/allusers',
+                element:
+                    <AdminRoute>
+                        <AllUsers></AllUsers>
+                    </AdminRoute>
+            },
+
+        ]
     }
 ])
 export default router;

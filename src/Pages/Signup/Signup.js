@@ -6,6 +6,7 @@ import Lottie from 'lottie-react';
 import loginAnimation from '../../assets/login-page-animation.json';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
+import useToken from '../../hooks/useToken';
 
 
 const Signup = () => {
@@ -15,7 +16,14 @@ const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     // const [data, setData] = useState("");
     const [signUpError, setSignUpError] = useState("");
+
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
+
+        if(token){
+            navigate('/')
+        }
 
     const handleSignUp = data => {
         // console.log(data);
@@ -52,9 +60,10 @@ const Signup = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                navigate('/');
+                setCreatedUserEmail(email);
             })
     }
+
 
     return (
         <div

@@ -2,9 +2,9 @@ import React from 'react';
 
 const DashBoard = () => {
     return (
-        <div className='mt-20'>
-            <h2 className='text-3xl text-center'> DashBoard Is Comming Soon</h2>
-        </div>
+       <div className='text-slate-300'>
+        <h2>Comming Soon</h2>
+       </div>
     );
 };
 

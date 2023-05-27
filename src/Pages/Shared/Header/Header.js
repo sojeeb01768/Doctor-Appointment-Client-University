@@ -12,8 +12,10 @@ const Nav = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
-        toast.success("Log out Successful")
+            .then(() => {
+                toast.success("Log out Successful")
+            })
+
             .catch(error => console.log(error))
     }
 
@@ -21,7 +23,8 @@ const Nav = () => {
         <>
             <li className='mb-2 md:mb-0 md:pt-0 lg:mb-0 lg:pt-0 pt-2'><Link to='/'>HOME</Link></li>
             <li className='mb-2 md:mb-0 lg:mb-0'><Link to='/consultation'>CONSULTATION</Link></li>
-            <li className='mb-2 md:mb-0 lg:mb-0'><Link to='/'>ABOUT</Link></li>
+            <li className='mb-2 md:mb-0 lg:mb-0'><Link to='/appointment'>APPOINTMENT</Link></li>
+            {/* <li className='mb-2 md:mb-0 lg:mb-0'><Link to='/'>ABOUT</Link></li> */}
 
             {
                 user?.uid ?
@@ -37,9 +40,13 @@ const Nav = () => {
     let [open, setOpen] = useState(false);
     return (
         <div className='shadow-md w-full fixed top-0 z-50'>
+
             <div className='md:flex sm:gap-5 items-center justify-between bg-slate-50 py-4 md:px-10 px-7'>
+                <label htmlFor="dashboard" className="text-3xl absolute left-2 top-6 cursor-pointer lg:hidden">
+                    <ion-icon name={open ? 'close' : 'menu'}></ion-icon>
+                </label>
                 <Link to="/" className='font-bold text-2xl cursor-pointer flex items-center text-gray-800'>
-                    <img className='w-52' src={logo} alt="" />
+                    <img className='w-52 ml-5 lg:ml-0' src={logo} alt="" />
                 </Link>
 
                 <div onClick={() => setOpen(!open)} className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>
