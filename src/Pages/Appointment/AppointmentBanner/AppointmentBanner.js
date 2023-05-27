@@ -5,7 +5,7 @@ import { DayPicker } from 'react-day-picker';
 
 const AppointmentBanner = ({ selectedDate, setSelectedDate }) => {
     const disabledDays = [
-        { from: new Date(2000, 1, 1), to: new Date(2023, 4, 21) },
+        { from: new Date(2000, 1, 1), to: new Date(2023, 4, 25) },
     ];
 
 
