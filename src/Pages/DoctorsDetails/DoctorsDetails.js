@@ -15,16 +15,6 @@ const DoctorsDetails = () => {
 
   const [selectedDate, setSelectedDate] = useState(new Date());
 
-//   const date = format(selectedDate, 'PP')
-
-//   const { data: appointmentOptions = [], refetch, isLoading } = useQuery({
-//     queryKey: ['doctorDetails', date],
-//     queryFn: () => fetch(`http://localhost:5000/doctor-details?date=${date}`)
-//         .then(res => res.json())
-// })
-
-// console.log(appointmentOptions);
-
   return (
     <div className="bg-[#0E1629] ">
       <div className="lg:mt-20 lg:mb-0 mt-20 mb-8 px-4 mx-auto md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 py-20 ">
@@ -84,13 +74,13 @@ const DoctorsDetails = () => {
           setSelectedDate={setSelectedDate}
           doctor={doctor}
         ></BookingModal>
-        
+
       </div>
-      <BookingModal
+      {/* <BookingModal
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
         doctor={doctor}
-      ></BookingModal>
+      ></BookingModal> */}
     </div>
   );
 };

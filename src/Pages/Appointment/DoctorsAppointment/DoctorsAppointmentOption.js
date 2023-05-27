@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider';
+import { Link, useLocation } from 'react-router-dom';
 
 const DoctorsAppointmentOption = ({ appointment, setDoctorForTreatment }) => {
+    const { user } = useContext(AuthContext)
+    // console.log(user);
+    const location = useLocation();
 
     const { name, slots, designation, specialities, hospital, price } = appointment; //appointment is treatment
 
@@ -16,16 +21,30 @@ const DoctorsAppointmentOption = ({ appointment, setDoctorForTreatment }) => {
                 <p>{slots.length} {slots.length > 1 ? "Spaces" : "Space"}  Available</p>
                 <div className="card-actions justify-center">
                     {/* The button to open modal */}
-                    <label
-                        disabled={slots?.length === 0}
-                        htmlFor="booking-modal"
-                        className=" btn bg-[#38BDF8] border-none text-md text-white  py-2 px-2 rounded 
-                       font-semibold "
-                        onClick={() => setDoctorForTreatment(appointment)}
-                    >
 
-                        Book Appointment
-                    </label>
+                    {
+
+                        user ?
+
+                            (<label
+                                disabled={slots?.length === 0}
+                                htmlFor="booking-modal"
+                                className=" btn bg-[#07acf3] hover:bg-[#38BDF8] border-none text-md text-white  py-2 px-2 rounded 
+               font-semibold "
+                                onClick={() => setDoctorForTreatment(appointment)}
+                            >
+
+                                Book Appointment
+                            </label>)
+                            :
+                            (
+                                <Link to={'/login'} state={{ from: location }} className="btn  bg-[#07acf3] hover:bg-[#38BDF8] border-none text-md text-white  px-2 rounded 
+                    font-semibold ">Please Login First</Link>
+                            )
+
+                    }
+
+
 
                 </div>
             </div>

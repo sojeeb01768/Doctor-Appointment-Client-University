@@ -2,16 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Specialities'
 const Specialities = ({ speciality }) => {
-    const { id } = speciality;
+  const { id } = speciality;
 
   // const [specialist, setSpecialist] = useState([]);
   // console.log(specialist);
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/consult/${id}`)
-    //         .then(response => response.json())
-    //         .then(data => setSpecialist(data));
-    // }, [id]);
+  // useEffect(() => {
+  //     fetch(`http://localhost:5000/consult/${id}`)
+  //         .then(response => response.json())
+  //         .then(data => setSpecialist(data));
+  // }, [id]);
 
 
   return (

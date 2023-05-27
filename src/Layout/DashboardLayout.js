@@ -3,11 +3,15 @@ import Header from '../Pages/Shared/Header/Header';
 import { Link, Outlet } from 'react-router-dom';
 import useAdmin from '../hooks/useAdmin';
 import { AuthContext } from '../contexts/AuthProvider';
+import usePatient from '../hooks/usePatient';
+import useDoctor from '../hooks/useDoctor';
 
 const DashboardLayout = () => {
 
     const { user } = useContext(AuthContext);
-    const [isAdmin] = useAdmin(user?.email)
+    const [isAdmin] = useAdmin(user?.email);
+    const [isPatient] = usePatient(user?.email)
+    const [isDoctor] = useDoctor(user?.email)
 
     return (
         <div>
@@ -24,7 +28,22 @@ const DashboardLayout = () => {
                     <div className="drawer-side ">
                         <label htmlFor="dashboard" className="drawer-overlay"></label>
                         <ul className="menu p-4 w-80 shadow-2xl bg-[#F8FAFC]  text-gray-800">
-                            <li><Link to='/dashboard'>My Appointment</Link></li>
+
+                            {
+                                isPatient && <>
+                                    < li > <Link to='/dashboard/patient'>My Appointment</Link></li>
+                                </>
+                            }
+
+                            {
+
+                                isDoctor && <>
+                                    < li > <Link to='/dashboard/mypatient'>My Patient</Link></li>
+                                    < li > <Link to='/dashboard/adddoctor'>Profile</Link></li>
+                                </>
+                            }
+
+
                             {
                                 isAdmin &&
                                 <li><Link to='/dashboard/allusers'>All Users</Link></li>
@@ -35,7 +54,7 @@ const DashboardLayout = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -43,7 +43,7 @@ const AllUsers = () => {
                             <th>Email</th>
                             <th>Category</th>
                             <th>Admin</th>
-                            <th>Delete</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -52,14 +52,13 @@ const AllUsers = () => {
                                 <th>{i + 1}</th>
                                 <td >{user?.name}</td>
                                 <td>{user?.email}</td>
-                                <td>{user?.category}</td> 
+                                <td>{user?.category}</td>
                                 <td>
                                     {
                                         user?.category !== 'admin' &&
                                         <button onClick={() => handleMakeAdmin(user?._id)} className='btn btn-xs btn-accent'>Make Admin</button>
                                     }
                                 </td>
-                                <td><button className='btn btn-xs btn-warning'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>
