@@ -1,11 +1,17 @@
 import React from 'react';
 import img from '../../../assets/images/chair.png'
 import { DayPicker } from 'react-day-picker';
+import './AppointmentBanner.css'
+
+
+
+
 
 
 const AppointmentBanner = ({ selectedDate, setSelectedDate }) => {
     const disabledDays = [
         { from: new Date(2000, 1, 1), to: new Date(2023, 4, 25) },
+        { from: new Date(2023, 7, 1), to: new Date(2050, 6, 25) },
     ];
 
 
@@ -16,7 +22,7 @@ const AppointmentBanner = ({ selectedDate, setSelectedDate }) => {
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row-reverse  gap-10">
                     <img src={img} alt='' className=" lg:w-8/12 md:w-9/12 w-md rounded-lg shadow-2xl" />
-                    <div className='mr-6'>
+                    <div className='mr-6 bg-white rounded-lg'>
                         <DayPicker
                             mode="single"
 

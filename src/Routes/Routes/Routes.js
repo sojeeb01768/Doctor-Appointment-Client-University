@@ -18,6 +18,7 @@ import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 import AddDoctor from "../../Pages/DashBoard/AddDoctor/AddDoctor";
 import MyPatient from "../../Pages/DashBoard/MyPatient/MyPatient";
 import DoctorRoute from "../DoctorRoute/DoctorRoute";
+import Prescription from "../../Pages/DashBoard/Prescription/Prescription";
 
 const router = createBrowserRouter([
     {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/mypatient',
                 element: <DoctorRoute><MyPatient></MyPatient></DoctorRoute>
+            },
+            {
+                path: '/dashboard/prescription',
+                element: <DoctorRoute><Prescription></Prescription></DoctorRoute>
             },
             {
                 path: '/dashboard/allusers',
