@@ -19,7 +19,7 @@ import AddDoctor from "../../Pages/DashBoard/AddDoctor/AddDoctor";
 import MyPatient from "../../Pages/DashBoard/MyPatient/MyPatient";
 import DoctorRoute from "../DoctorRoute/DoctorRoute";
 import ManageDoctors from "../../Pages/DashBoard/ManageDoctors/ManageDoctors";
-
+import Prescription from "../../Pages/DashBoard/Prescription/Prescription";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -87,7 +87,10 @@ const router = createBrowserRouter([
                 path: '/dashboard/managedoctors',
                 element: <AdminRoute><ManageDoctors></ManageDoctors></AdminRoute>
             },
-
+            {
+                path: '/dashboard/prescription',
+                element: <DoctorRoute><Prescription></Prescription></DoctorRoute>
+            },
 
             {
                 path: '/dashboard/allusers',

@@ -40,6 +40,7 @@ const DashboardLayout = () => {
                                 isDoctor && <>
                                     < li > <Link to='/dashboard/mypatient'>My Patient</Link></li>
                                     < li > <Link to='/dashboard/adddoctor'>Profile</Link></li>
+                                    < li > <Link to='/dashboard/prescription'>Prescription</Link></li>
                                 </>
                             }
 
