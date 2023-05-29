@@ -10,16 +10,16 @@ const DoctorsAppointmentOption = ({ appointment, setDoctorForTreatment }) => {
     const { name, slots, designation, specialities, hospital, price } = appointment; //appointment is treatment
 
     return (
-        <div className="card  shadow-lg border mx-5">
+        <div className="card shadow-lg border mx-5 bg-white">
             <div className="card-body text-center ">
-                <h2 className="card-title mx-auto">Dr. {name}</h2>
-                <h4>Designation: {designation}</h4>
-                <h4>Specialities: {specialities}</h4>
-                <h4>Hospital: {hospital}</h4>
-                <h4> Price: {price} Tk</h4>
-                <p >{slots.length > 0 ? slots[0] : <span className='text-red-600' >Slot Not Available</span>}</p>
-                <p>{slots.length} {slots.length > 1 ? "Spaces" : "Space"}  Available</p>
-                <div className="card-actions justify-center">
+                <h2 className="card-title font-bold mx-auto">Dr. {name}</h2>
+                <h4 ><span className='font-semibold'>Designation: </span>{designation}</h4>
+                <h4><span className='font-semibold'>Specialities:</span> {specialities}</h4>
+                <h4><span className='font-semibold'>Hospital:</span> {hospital}</h4>
+                <h4> <span className='font-semibold'>Price:</span> {price} Tk</h4>
+                <h4 ><span className='font-semibold'>Time-Slot:</span> {slots.length > 0 ? slots[0] : <span className='text-red-600' >Slot Not Available</span>}</h4>
+                <h4>{slots.length} {slots.length > 1 ? "Spaces" : "Space"}  Available</h4>
+                <div className="card-actions justify-center mt-4">
                     {/* The button to open modal */}
 
                     {

@@ -116,7 +116,7 @@ const ModalForBooking = ({ doctorForTreatment, setDoctorForTreatment, selectedDa
                         />
 
                         <input type="submit" className='bg-[#38BDF8] text-lg text-white font-[Poppins] py-2  rounded hover:bg-[#07acf3]
-                        duration-800 font-semibold cursor-pointe text-center w-full ' value="Submit" />
+                        duration-800 font-semibold cursor-pointer text-center w-full ' value="Submit" />
                     </form>
 
                 </div>

@@ -34,10 +34,10 @@ const DoctorsAppointment = ({ selectedDate }) => {
 
 
     return (
-        <section className='mb-10'>
+        <section className='pb-10'>
             <div className=' mb-10 '>
                 <div>
-                    <p className='text-center text-primary font-semibold lg:text-2xl md:text-2xl mb-5'>Available Appointments on {format(selectedDate, 'PP')}</p>
+                    <p className='text-center font-semibold lg:text-2xl md:text-2xl mb-5 text-white'>Available Appointments on <span className='text-[#e12986]' >{format(selectedDate, 'PP')}</span></p>
                 </div>
                 <div className='flex gap-2 justify-center items-center'>
 
@@ -45,7 +45,7 @@ const DoctorsAppointment = ({ selectedDate }) => {
                     <button onClick={handleSearch} className='btn btn-sm btn-primary'>Search</button>
                 </div>
             </div>
-            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-10 md:px-6 px-4'>
                 {
                     doctorAppointment?.map(appointment => <DoctorsAppointmentOption
                         key={appointment._id}
