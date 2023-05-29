@@ -8,7 +8,7 @@ const usePatient = email => {
             fetch(`http://localhost:5000/users/patient/${email}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     setIsPatient(data.isPatient);
                     setIsPatientLoading(false)
                 })

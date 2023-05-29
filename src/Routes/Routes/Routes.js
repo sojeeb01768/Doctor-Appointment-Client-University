@@ -18,11 +18,13 @@ import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 import AddDoctor from "../../Pages/DashBoard/AddDoctor/AddDoctor";
 import MyPatient from "../../Pages/DashBoard/MyPatient/MyPatient";
 import DoctorRoute from "../DoctorRoute/DoctorRoute";
+import ManageDoctors from "../../Pages/DashBoard/ManageDoctors/ManageDoctors";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/',
@@ -81,6 +83,12 @@ const router = createBrowserRouter([
                 path: '/dashboard/mypatient',
                 element: <DoctorRoute><MyPatient></MyPatient></DoctorRoute>
             },
+            {
+                path: '/dashboard/managedoctors',
+                element: <AdminRoute><ManageDoctors></ManageDoctors></AdminRoute>
+            },
+
+
             {
                 path: '/dashboard/allusers',
                 element:

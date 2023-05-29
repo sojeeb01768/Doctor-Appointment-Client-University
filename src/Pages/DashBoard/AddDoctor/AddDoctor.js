@@ -3,12 +3,16 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Loading from '../../Shared/Loading/Loading';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import { toast } from 'react-hot-toast';
+// import { useNavigate } from 'react-router-dom';
 
 const AddDoctor = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { user } = useContext(AuthContext)
     // console.log(user);
+
+    // const navigate = useNavigate();
 
     const imageHostKey = process.env.REACT_APP_imgbb_key;
     // console.log(imageHostKey);
@@ -24,7 +28,7 @@ const AddDoctor = () => {
     })
 
     // for doctor slot
-    const { data: doctorsInfo = [] } = useQuery({
+    const { data: doctorsInfo = [], refetch } = useQuery({
         queryKey: ['doctorsInfo'],
         queryFn: async () => {
             const res = await fetch("http://localhost:5000/doctorsInfo");
@@ -78,6 +82,10 @@ const AddDoctor = () => {
                         .then(res => res.json())
                         .then(result => {
                             console.log(result);
+                            toast.success(`${result.name} added sucessfully`)
+                            // navigate('/dashboard/managedoctors')
+                            refetch();
+
                         })
                 }
             })
