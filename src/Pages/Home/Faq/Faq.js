@@ -5,22 +5,22 @@ const Faq = () => {
   return (
     <div className="bg-faq">
       <div>
-        <section class="text-gray-700">
-          <div class="container px-5 pb-8 mx-auto">
-            <div class="text-center mb-20">
-              <h1 class="text-5xl font-bold text-center title-font text-white mb-4">
+        <section className="text-gray-700">
+          <div className="container px-5 pb-8 mx-auto">
+            <div className="text-center mb-20">
+              <h1 className="text-5xl font-bold text-center title-font text-white mb-4">
                 Have any questions?
               </h1>
-              <p class="text-white leading-relaxed xl:w-4/5 lg:w-3/4 mx-auto">
+              <p className="text-white leading-relaxed xl:w-4/5 lg:w-3/4 mx-auto">
                 Find below our frequently asked questions. If you have other
                 questions please contact us.
               </p>
             </div>
 
-            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2 text-justify">
-              <div class="w-full lg:w-1/2 px-4 py-2">
-                <details class="mb-4">
-                  <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+            <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2 text-justify">
+              <div className="w-full lg:w-1/2 px-4 py-2">
+                <details className="mb-4">
+                  <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
                     What do we treat?
                   </summary>
 
@@ -42,8 +42,8 @@ const Faq = () => {
                     bereavement or depression.
                   </span>
                 </details>
-                <details class="mb-4">
-                  <summary class="font-semibold bg-gray-200 rounded-md py-2 px-4">
+                <details className="mb-4">
+                  <summary className="font-semibold bg-gray-200 rounded-md py-2 px-4">
                     How does it work?
                   </summary>
 
@@ -62,8 +62,8 @@ const Faq = () => {
                     through our homepage
                   </span>
                 </details>
-                <details class="mb-4">
-                  <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                <details className="mb-4">
+                  <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
                     Is my data secure?
                   </summary>
 
@@ -73,9 +73,9 @@ const Faq = () => {
                   </span>
                 </details>
               </div>
-              <div class="w-full lg:w-1/2 px-4 py-2">
-                <details class="mb-4">
-                  <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+              <div className="w-full lg:w-1/2 px-4 py-2">
+                <details className="mb-4">
+                  <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
                     How do I make payment?
                   </summary>
 
@@ -84,8 +84,8 @@ const Faq = () => {
                     credit card.
                   </span>
                 </details>
-                <details class="mb-4">
-                  <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                <details className="mb-4">
+                  <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
                     When are the doctors available for consultation?
                   </summary>
 
@@ -95,12 +95,12 @@ const Faq = () => {
                     at any time if they want.
                   </span>
                 </details>
-                <details class="mb-4">
-                  <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
-                  Can we select a doctor of our own choice?
+                <details className="mb-4">
+                  <summary className="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                    Can we select a doctor of our own choice?
                   </summary>
 
-                  <span class="py-2 text-white">
+                  <span className="py-2 text-white">
                     Yes, certainly, you can select any doctor registered in the
                     DocTime platform. When you search for a doctor or give your
                     symptoms, DocTime will show you all the most relevant

@@ -85,7 +85,7 @@ const DoctorInfo = ({ doctor }) => {
 
 
       <h2 className="text-2xl font-semibold">About <span className="font-bold">{doctor.name} - {doctor.designation}</span></h2>
-      <p className="text-justify text-gray-500 mt-3 lg:w-7/12">{doctor.About}</p>
+      <p className="text-justify text-gray-500 mt-3 ">{doctor.About}</p>
 
 
 

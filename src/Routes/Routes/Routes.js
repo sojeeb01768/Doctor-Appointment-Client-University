@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Consultation from "../../Pages/Consultation/Consultation";
-import DashBoard from "../../Pages/DashBoard/DashBoard/DashBoard";
 import DoctorsDetails from "../../Pages/DoctorsDetails/DoctorsDetails";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -9,6 +8,16 @@ import Signup from "../../Pages/Signup/Signup";
 import Specialist from "../../Pages/Specialist/Specialist";
 import Specialities from "../../Pages/Specialities/Specialities";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import DashboardLayout from "../../Layout/DashboardLayout";
+import MyAppointment from "../../Pages/DashBoard/MyAppointment/MyAppointment";
+import Appointment from "../../Pages/Appointment/Appointment/Appointment";
+import AllUsers from "../../Pages/DashBoard/AllUsers/AllUsers";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import Payment from "../../Pages/DashBoard/Payment/Payment";
+import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
+import AddDoctor from "../../Pages/DashBoard/AddDoctor/AddDoctor";
+import MyPatient from "../../Pages/DashBoard/MyPatient/MyPatient";
+import DoctorRoute from "../DoctorRoute/DoctorRoute";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: '/consultation',
                 element: <Consultation></Consultation>
+            },
+            {
+                path: '/appointment',
+                element: <Appointment></Appointment>
             },
             {
                 path: '/specialist/:id',
@@ -40,7 +53,7 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/doctor-details/${params.id}`)
 
             },
-            
+
             {
                 path: '/login',
                 element: <Login></Login>
@@ -53,7 +66,35 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        errorElement: <DisplayError></DisplayError>,
+        children: [
+            {
+                path: '/dashboard/patient',
+                element: <MyAppointment></MyAppointment>
+            },
+            {
+                path: '/dashboard/adddoctor',
+                element: <DoctorRoute><AddDoctor></AddDoctor></DoctorRoute>
+            },
+            {
+                path: '/dashboard/mypatient',
+                element: <DoctorRoute><MyPatient></MyPatient></DoctorRoute>
+            },
+            {
+                path: '/dashboard/allusers',
+                element:
+                    <AdminRoute>
+                        <AllUsers></AllUsers>
+                    </AdminRoute>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+            }
+
+        ]
     }
 ])
 export default router;
