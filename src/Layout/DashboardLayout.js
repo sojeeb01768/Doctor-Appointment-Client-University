@@ -32,6 +32,7 @@ const DashboardLayout = () => {
                             {
                                 isPatient && <>
                                     < li > <Link to='/dashboard/patient'>My Appointment</Link></li>
+                                    < li > <Link to='/dashboard/myPrescription'>My Prescription</Link></li>
                                 </>
                             }
 
@@ -48,7 +49,7 @@ const DashboardLayout = () => {
                             {
                                 isAdmin && <>
 
-                                    < li > <Link to='/dashboard/patient'>My Appointment</Link></li>
+
                                     <li><Link to='/dashboard/allusers'>All Users</Link></li>
                                     <li><Link to='/dashboard/managedoctors'>Manage Doctors</Link></li>
 

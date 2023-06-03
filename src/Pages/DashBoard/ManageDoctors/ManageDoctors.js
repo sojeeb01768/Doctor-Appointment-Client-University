@@ -1,118 +1,99 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
-import Loading from '../../Shared/Loading/Loading';
-import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
-import { toast } from 'react-hot-toast';
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import { toast } from "react-hot-toast";
+import { GoVerified } from "react-icons/go";
 
 const ManageDoctors = () => {
+  const { data: doctors = [], refetch } = useQuery({
+    queryKey: ["doctors"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/allDoctorsAdmin");
+      const data = await res.json();
+      return data;
+    },
+  });
+  console.log(doctors);
 
-    const [deleteDoctor, setDeleteDoctor] = useState(null)
+  const { logOut } = useContext(AuthContext);
+  const notifyVerify = () => toast.success("Verified Successfully");
 
-    const closeModal = () => {
-        setDeleteDoctor(null)
-    }
-
-
-
-    const { data: alldoctors, isLoading, refetch } = useQuery({
-        queryKey: ['alldoctors'],
-        queryFn: async () => {
-            try {
-                const res = await fetch('http://localhost:5000/alldoctors', {
-                    authorization: `bearer ${localStorage.getItem('accessToken')}`
-                });
-                const data = await res.json();
-                return data;
-            }
-            catch (error) {
-
-            }
-        }
+  //verify a seller
+  const handleVerify = (id) => {
+    fetch(`http://localhost:5000/allDoctorsAdmin/${id}`, {
+      method: "PUT",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          return logOut();
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          refetch();
+          notifyVerify();
+        }
+      });
+  };
 
-    const handleDeleteDoctor = (doctor) => {
-        fetch(`http://localhost:5000/alldoctors/${doctor._id}`, {
-            method: 'DELETE',
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    toast.success(`${doctor?.name} Delete Successful`)
-                    refetch();
-                }
-                // console.log(data);
-
-            })
-
-    }
-
-
-
-    if (isLoading) {
-        return <Loading></Loading>
-    }
-
-    return (
-        <div>
-            <h2 className='text-center text-white text-4xl mt-10'>Manage Doctors</h2>
-            <h2 className='text-center text-white text-3xl mb-10 mt-5'>Numbers Of Doctors : {alldoctors?.length}</h2>
-
-            <div className="overflow-x-auto">
-                <table className="table w-full rounded-none mb-10">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Specialities</th>
-                            <th>Hospital</th>
-                            <th></th>
-
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            alldoctors?.map((doctor, i) => <tr key={doctor?._id} className="hover">
-                                <th>{i + 1}</th>
-
-
-                                <td>
-                                    <div className="avatar">
-                                        <div className="w-14 rounded-full">
-                                            <img alt='' src={doctor?.image} />
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td>{doctor?.name}</td>
-                                <td>{doctor?.specialities}</td>
-                                <td>{doctor?.hospital}</td>
-                                <td>
-                                    <label onClick={() => setDeleteDoctor(doctor)} htmlFor="confirmation-modal" className="btn btn-sm btn-error text-white">Delete</label>
-                                </td>
-
-                            </tr>)
-                        }
-                    </tbody>
-                </table>
-            </div>
-            {
-                deleteDoctor && <ConfirmationModal
-                    title={`Are you sure? You Want to delete?`}
-                    message={`Dr. ${deleteDoctor?.name} Will be Permanently Delete`}
-                    successAction={handleDeleteDoctor}
-                    successButtonName="Delete"
-                    modalData={deleteDoctor}
-                    closeModal={closeModal}
-                ></ConfirmationModal>
-            }
-        </div>
-    );
+  return (
+    <div>
+      <h3 className="text-4xl font-semibold text-slate-300 mt-6 text-center">
+        All Users
+      </h3>
+      <div className="overflow-x-auto">
+        <table className="table w-full rounded-0">
+          {/* {/ head /} */}
+          <thead>
+            <tr>
+              <th>Profile Pic</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {doctors?.map((doctor) => (
+              <tr>
+              <th>
+                <div className="avatar">
+                  <div className="w-full h-20 rounded">
+                    <img src={doctor.image} alt="" />
+                  </div>
+                </div>
+              </th>
+              <th>
+                <div className="flex items-center space-x-3">
+                  <div className="flex items-center justify-center">
+                    <div className="font-bold">{doctor.name} </div>
+                    {doctor.verifyStatus && <GoVerified className="text-blue-600  ml-1" />}
+                  </div>
+                </div>
+              </th>
+              <th>
+                <span className="badge badge-ghost badge-sm">{doctor.email}</span>
+              </th>
+              <th>
+                <button
+                  onClick={() => handleVerify(doctor._id)}
+                  disabled={doctor.verifyStatus}
+                  className="btn btn-primary btn-md"
+                >
+                  {doctor.verifyStatus ? "verified" : "verify"}
+                </button>
+              </th>
+            </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default ManageDoctors;

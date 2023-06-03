@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { Link } from 'react-router-dom';
 
 const CheckoutForm = ({ booking }) => {
     const [cardError, setCardError] = useState('');
@@ -141,6 +142,7 @@ const CheckoutForm = ({ booking }) => {
                 success && <div>
                     <p className='text-green-500'>{success}</p>
                     <p>Your Transection ID: <strong>{transactionId}</strong></p>
+                    {/* <Link success={success} transactionId={transactionId} className='btn text-white btn-sm my-5' to='/dashboard/paymentinfo'>Download Payment Info</Link> */}
                 </div>
             }
         </>

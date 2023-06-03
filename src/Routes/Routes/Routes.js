@@ -20,6 +20,8 @@ import MyPatient from "../../Pages/DashBoard/MyPatient/MyPatient";
 import DoctorRoute from "../DoctorRoute/DoctorRoute";
 import ManageDoctors from "../../Pages/DashBoard/ManageDoctors/ManageDoctors";
 import Prescription from "../../Pages/DashBoard/Prescription/Prescription";
+import MyPrescription from "../../Pages/DashBoard/MyAppointment/MyPrescription";
+import PaymentInfo from "../../Pages/DashBoard/Payment/PaymentInfo";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -74,6 +76,14 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/patient',
                 element: <MyAppointment></MyAppointment>
+            },
+            {
+                path: '/dashboard/myPrescription',
+                element: <MyPrescription></MyPrescription>
+            },
+            {
+                path: '/dashboard/paymentinfo',
+                element: <PaymentInfo></PaymentInfo>
             },
             {
                 path: '/dashboard/adddoctor',

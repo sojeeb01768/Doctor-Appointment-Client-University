@@ -3,14 +3,16 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
+import Loading from "../../Shared/Loading/Loading";
 
 
 const MyPatient = () => {
   const { user } = useContext(AuthContext);
+  // console.log(user);
 
   const url = `http://localhost:5000/doctor-appointment?email=${user?.email}`;
 
-  const { data: patients = [] } = useQuery({
+  const { data: patients = [], isLoading } = useQuery({
     queryKey: ["patients", user?.email],
     queryFn: async () => {
       const res = await fetch(url, {
@@ -22,10 +24,12 @@ const MyPatient = () => {
       return data;
     },
   });
-  console.log(patients);
+  // console.log(patients);
 
   const [doctorEmail, setDoctorEmail] = useState("");
   const [patientEmail, setPatientEmail] = useState("");
+
+  console.log(doctorEmail);
 
   const sendEmail = (button) => {
     axios
@@ -35,7 +39,7 @@ const MyPatient = () => {
         patientEmail,
       })
       .then((response) => {
-        console.log(response.data.message); 
+        console.log(response.data.message);
         toast.success(response.data.message);
       })
       .catch((error) => {
@@ -46,6 +50,9 @@ const MyPatient = () => {
   const areInputsEmpty =
     doctorEmail.trim() === "" || patientEmail.trim() === "";
 
+if(isLoading){
+  <Loading></Loading>
+}
   return (
     <div className="">
       <h3 className="text-4xl font-semibold text-slate-300 mt-6 text-center">
@@ -72,11 +79,11 @@ const MyPatient = () => {
               <th>Time</th>
               <th>Email</th>
               <th>Payment Status</th>
-              <th>Send confirmation Mail to Patient</th>
+              {/* <th>Send confirmation Mail to Patient</th> */}
             </tr>
           </thead>
           <tbody>
-            {patients.map((patient, i) => (
+            {patients?.map((patient, i) => (
               <tr key={patient?._id} className="hover">
                 <th>{i + 1}</th>
 
@@ -90,7 +97,7 @@ const MyPatient = () => {
                 <td>{patient?.patientName}</td>
                 <td>{patient?.appointmentDate}</td>
                 <td>{patient?.slot}</td>
-                <td>{patient.patientEmail}</td>
+                <td>{patient?.patientEmail}</td>
                 <td>
                   {patient?.price && !patient?.paid && (
                     <span className="text-red-500 font-semibold">Not Paid</span>
@@ -99,50 +106,54 @@ const MyPatient = () => {
                     <span className="text-green-500 font-semibold">PAID</span>
                   )}
                 </td>
-                <td>
-                  <div className="flex gap-5">
-                    <input
-                      type="email"
-                      placeholder="My Email"
-                      value={doctorEmail}
-                      onChange={(e) => setDoctorEmail(e.target.value)}
-                      className="input "
-                    />
-                    <input
-                      type="email"
-                      placeholder="Patient Email"
-                      value={patientEmail}
-                      onChange={(e) => setPatientEmail(e.target.value)}
-                      className="input"
-                    />
-                  </div>
 
-                  {!areInputsEmpty && (
-                    <div className="flex mt-5 justify-center gap-8">
-                      <button
-                        className="btn btn-success btn-xs"
-                        onClick={() => sendEmail("visit")}
-                      >
-                        Visited
-                      </button>
-                      <button
-                        className="btn btn-error btn-xs"
-                        onClick={() => sendEmail("absent")}
-                      >
-                        Absent
-                      </button>
-                    </div>
-                  )}
-                  <Toaster />
-                  {/* <select>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                  </select> */}
-                </td>
               </tr>
             ))}
           </tbody>
         </table>
+
+      </div>
+      <div>
+        <div>
+          <div className="flex gap-5 justify-center my-10 p-">
+            <input
+              type="email"
+              placeholder="My Email"
+              value={doctorEmail}
+              onChange={(e) => setDoctorEmail(e.target.value)}
+              className="input "
+            />
+            <input
+              type="email"
+              placeholder="Patient Email"
+              value={patientEmail}
+              onChange={(e) => setPatientEmail(e.target.value)}
+              className="input"
+            />
+          </div>
+
+          {!areInputsEmpty && (
+            <div className="flex mt-5 justify-center gap-8">
+              <button
+                className="btn btn-success btn-xs"
+                onClick={() => sendEmail("visit")}
+              >
+                Visited
+              </button>
+              <button
+                className="btn btn-error btn-xs"
+                onClick={() => sendEmail("absent")}
+              >
+                Absent
+              </button>
+            </div>
+          )}
+          <Toaster />
+          {/* <select>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                  </select> */}
+        </div>
       </div>
     </div>
   );
