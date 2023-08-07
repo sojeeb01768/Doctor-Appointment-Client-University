@@ -10,7 +10,7 @@ import './AppointmentBanner.css'
 
 const AppointmentBanner = ({ selectedDate, setSelectedDate }) => {
     const disabledDays = [
-        { from: new Date(2000, 1, 1), to: new Date(2023, 4, 25) },
+        { from: new Date(2000, 1, 1), to: new Date(2023, 5, 6) },
         { from: new Date(2023, 7, 1), to: new Date(2050, 6, 25) },
     ];
 

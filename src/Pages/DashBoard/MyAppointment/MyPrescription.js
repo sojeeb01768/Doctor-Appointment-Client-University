@@ -28,62 +28,80 @@ const MyPrescription = () => {
   const ref = React.createRef();
 
   return (
-    <div className="bg-white py-48">
-      
+    <div className="bg-white pb-48">
 
-      {/* <div style={{width: 500, height: 500, margin:'auto'}} ref={ref} className="flex justify-center mt-48">
-        <div className="card lg:card-side bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">Your Prescription</h2>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Download PDF</button>
-            </div>
-          </div>
-        </div>
-      </div>  */}
+
+     {
+        prescriptions[0]?.patientEmail &&  <div className="overflow-x-auto flex justify-center py-20">
+        <table className="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Medicine</th>
+              <th>Day</th>
+              <th>Take</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td>{prescriptions[0]?.patientName}</td>
+              <td>{prescriptions[0]?.patientEmail}</td>
+              <td>{prescriptions[0]?.medicine}</td>
+              <td>{prescriptions[0]?.day}</td>
+              <td>{prescriptions[0]?.take}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+     }
 
       {
-        prescriptions[0]?.patientEmail ? 
+        prescriptions[0]?.patientEmail ?
 
-        <>
-         <div
-        ref={ref}
-        style={{
-            width: 300, height: 300, margin:'0 auto',
-        }}
-      >
-        <QRCode
-          size={256}
-          style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-          value={`Name: ${prescriptions[0]?.patientName}, Email: ${prescriptions[0]?.patientEmail}, Category: ${prescriptions[0]?.category}, Medicine: ${prescriptions[0]?.medicine}, Day: ${prescriptions[0]?.day}, TakePill: ${prescriptions[0]?.take} Times`}
-          viewBox={`0 0 256 256`}
-        />
-      </div>
+          <>
+            <div
+              ref={ref}
+              style={{
+                width: 300, height: 300, margin: '0 auto',
+              }}
+            >
+              <QRCode
+                size={256}
+                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                value={`Name: ${prescriptions[0]?.patientName}, Email: ${prescriptions[0]?.patientEmail}, Category: ${prescriptions[0]?.category}, Medicine: ${prescriptions[0]?.medicine}, Day: ${prescriptions[0]?.day}, TakePill: ${prescriptions[0]?.take} Times`}
+                viewBox={`0 0 256 256`}
+              />
+            </div>
 
 
-      <div className="flex justify-center mt-10">
-        <ReactToPdf targetRef={ref} filename="Prescription.pdf">
-          {({ toPdf }) => <button className="btn" onClick={toPdf}>Generate pdf</button>}
-        </ReactToPdf>
-      </div>
-        
-        
-        </>
+            <div className="flex justify-center mt-10">
+              <ReactToPdf targetRef={ref} filename="Prescription.pdf">
+                {({ toPdf }) => <button className="btn" onClick={toPdf}>Export QR Code</button>}
+              </ReactToPdf>
+            </div>
 
-        :
 
-        <>
-        
-        <div className="text-center text-4xl font-bold">
-          Doctor do not prescribe you.  
-        </div>
-        
-        
-        </>
+          </>
+
+          :
+
+          <>
+
+            <div className="text-center text-4xl font-bold py-24">
+              Doctor does not prescribe you.
+            </div>
+
+
+          </>
       }
 
 
-     
+
     </div>
   );
 };

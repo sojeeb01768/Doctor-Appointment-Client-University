@@ -43,8 +43,8 @@ const ManageDoctors = () => {
 
   return (
     <div>
-      <h3 className="text-4xl font-semibold text-slate-300 mt-6 text-center">
-        All Users
+      <h3 className="text-4xl font-semibold text-slate-300 my-6 text-center">
+        All Doctors
       </h3>
       <div className="overflow-x-auto">
         <table className="table w-full rounded-0">
@@ -60,34 +60,34 @@ const ManageDoctors = () => {
           <tbody>
             {doctors?.map((doctor) => (
               <tr>
-              <th>
-                <div className="avatar">
-                  <div className="w-full h-20 rounded">
-                    <img src={doctor.image} alt="" />
+                <th>
+                  <div className="avatar">
+                    <div className="w-full h-20 rounded">
+                      <img src={doctor.image} alt="" />
+                    </div>
                   </div>
-                </div>
-              </th>
-              <th>
-                <div className="flex items-center space-x-3">
-                  <div className="flex items-center justify-center">
-                    <div className="font-bold">{doctor.name} </div>
-                    {doctor.verifyStatus && <GoVerified className="text-blue-600  ml-1" />}
+                </th>
+                <th>
+                  <div className="flex items-center space-x-3">
+                    <div className="flex items-center justify-center">
+                      <div className="font-bold">{doctor.name} </div>
+                      {doctor.verifyStatus && <GoVerified className="text-blue-600  ml-1" />}
+                    </div>
                   </div>
-                </div>
-              </th>
-              <th>
-                <span className="badge badge-ghost badge-sm">{doctor.email}</span>
-              </th>
-              <th>
-                <button
-                  onClick={() => handleVerify(doctor._id)}
-                  disabled={doctor.verifyStatus}
-                  className="btn btn-primary btn-md"
-                >
-                  {doctor.verifyStatus ? "verified" : "verify"}
-                </button>
-              </th>
-            </tr>
+                </th>
+                <th>
+                  <span className="badge badge-ghost badge-sm">{doctor.email}</span>
+                </th>
+                <th>
+                  <button
+                    onClick={() => handleVerify(doctor._id)}
+                    disabled={doctor.verifyStatus}
+                    className="btn btn-primary btn-md"
+                  >
+                    {doctor.verifyStatus ? "verified" : "verify"}
+                  </button>
+                </th>
+              </tr>
             ))}
           </tbody>
         </table>

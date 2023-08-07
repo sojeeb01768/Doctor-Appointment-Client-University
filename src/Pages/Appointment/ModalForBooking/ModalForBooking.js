@@ -54,7 +54,7 @@ const ModalForBooking = ({ doctorForTreatment, setDoctorForTreatment, selectedDa
                 console.log(data);
                 if (data.acknowledged) {
                     setDoctorForTreatment(null);
-                    toast.success('Booking Confirmed')
+                    toast.success('Booking Confirmed please check your dashboard')
                     refetch();
                 }
                 else {

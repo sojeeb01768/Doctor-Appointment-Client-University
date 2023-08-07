@@ -184,12 +184,12 @@ const Login = () => {
                   </label> */}
 
                   <div className="space-y-1">
-                    <button
-                      className="text-sm hover:underline text-gray-400"
+                    <p
+                      className="text-sm hover:underline text-gray-400 cursor-pointer"
                       onClick={handleForgetPassword}
                     >
                       Forgot password?
-                    </button>
+                    </p>
                   </div>
                 </div>
                 {errors.password && (

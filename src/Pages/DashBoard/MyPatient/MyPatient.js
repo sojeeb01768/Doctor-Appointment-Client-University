@@ -115,6 +115,7 @@ if(isLoading){
       </div>
       <div>
         <div>
+          <h2 className="text-center text-3xl text-white my-5 ">Send confirmation email to patient</h2>
           <div className="flex gap-5 justify-center my-10 p-">
             <input
               type="email"
